@@ -1,0 +1,8 @@
+.breadcrumb{
+    background: #E6B798;
+    border-radius: 2rem;
+}
+
+.breadcrumb-item a{
+    color: #F0392B;
+}

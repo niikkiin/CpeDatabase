@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+{% extends 'account/base.html' %}
+{% load static %}
+
+
+{% block account_content %}
+    
+    {% if registered %}
+        <h1>Thank you for registering.</h1>
+        <a href="{% url 'account:logout' %}">Logout</a>
+    {% else %}
+        <h1>Register Here</h1>
+        <h3>Fill out form</h3>
+
+        <form action="" method="post" enctype="multipart/form-data" >
+            {% csrf_token %}
+            {{ user_form.as_p }}
+            {{ profile_form.as_p }}
+            <input type="submit" value="Register">
+        </form>
+    {% endif %}
+        
+
+
+{% endblock account_content %}

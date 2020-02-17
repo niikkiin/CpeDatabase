@@ -1,0 +1,154 @@
+/* .jumbotron{
+    border-radius: 2rem;
+    padding: 3vh;
+}
+
+.card{
+    border-radius: 2rem;
+    padding: 5vh;
+} */
+/* SECTION FONTS */
+.muli-font {
+    font-family: 'Muli', sans-serif;
+}
+
+.cabin-font {
+    font-family: 'Cabin', sans-serif;
+}
+
+.tomorrow-font {
+    font-family: 'Tomorrow', sans-serif;
+}
+
+.open-font {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.monserrat-font {
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+
+
+
+.display-5{
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* SECTION Cards */
+.card {
+    /* border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px; */
+    border-radius: 50px;
+    border-top-color: transparent;
+    -webkit-box-shadow: 0px 10px 6px 0px rgba(232,92,98,1);
+    -moz-box-shadow: 0px 10px 6px 0px rgba(232,92,98,1);
+    box-shadow: 0px 10px 6px 0px rgba(232,92,98,1);
+}
+.img-card {
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+}
+.image-column {
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    background-color: #d0b7fe;
+    height: 20vh;
+    color: #eee;
+    /* font-size: large; */
+}
+
+.year {
+    color: #baaeba;
+}
+
+/* SECTION BUTTONS */
+
+.btn-danger {
+    background-color: #E46853 !important;
+}
+.btn-warning {
+    background-color: #E9AC1A !important;
+}
+.btn-success.btn-view-table {
+    background-color: #38989D !important;
+}
+
+
+/*SECTION HEADINGS */
+h3.title {
+    /* text-transform: uppercase; */
+    font-weight: bold;
+    font-family: 'Open Sans', sans-serif;
+    letter-spacing: 2px;
+}
+
+.md-form label {
+    top: -5px;
+    margin-left: 10px;
+}
+
+.total-students {
+    background-color: #e85c62;
+    color: #FCF5EC;
+    padding: 0.5em;
+    border-radius: 20px;
+}
+
+
+/* SECTION Tables */
+.tableSearchInput {
+    border-radius: 20px;
+    outline: none;
+    /* background: #fef4ea; */
+    font-family: 'Muli', sans-serif;
+    color: #e85c62;
+    border: 2px solid #c7c4c4;
+    transition: 0.5s ease-in-out;
+}
+.form-control:focus, select:focus, select:active, select:hover {
+    outline: none !important;
+    border-color: #4e2326 !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+}
+
+.table {
+    border: 3px solid #eee;
+    border-radius: 10px;
+    font-family: 'Muli', sans-serif;
+}
+.table thead th, .table tbody tr td{
+    border: 2px solid #eee !important;
+}
+.table thead th {
+    font-weight: bold;
+}
+.table tbody tr:hover, .table th:hover {
+    background: #fef9f0;
+    transition: 0.4s ease-in-out;
+}
+.table-link {
+    font-family: 'Muli', sans-serif;
+    color: #4e2326;
+    font-weight: bold;
+    transition: 0.3s ease-in-out;
+}
+.table-link:hover {
+    color: #e85c62;
+}
+
+.pagination .page-item.active .page-link {
+    background-color: #000;
+}
+.pagination .page-item.active .page-link:hover {
+    background-color: #e65a5f;
+}
+#studentListTable_info {
+    font-family: 'Muli', sans-serif;
+    margin-left: 10px;
+}
+
+
+

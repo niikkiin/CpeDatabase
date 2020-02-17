@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css?family=Cabin|Montserrat|Muli|Open+Sans|Tomorrow&display=swap');
+
+
+.breadcrumb{
+    background: #f7f7ff;
+    border-radius: 2rem;
+    margin-left: 0.8em;
+    font-family: 'Muli', sans-serif;
+}
+
+.breadcrumb-item a{
+    color: #e65b62;
+}

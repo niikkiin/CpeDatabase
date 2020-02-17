@@ -1,0 +1,56 @@
+{% extends 'home/base.html' %}
+{% load static %}
+
+
+{% block home_css %}
+    <link rel="stylesheet" href="{% static 'home/plugins/select2/css/select2.min.css' %}">
+{% endblock home_css %}
+
+
+{% block home_content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="section-container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h3 class="title pl-3">Add Student</h3>
+                    </div>
+                </div>
+                
+                <!-- inputs -->
+                <div class="row pl-3 text-center">
+                    <div class="col-sm-10">
+                        <form class="pt-5" method="POST">
+                            {% csrf_token %}
+                            {% for field in form %}
+                            <div class="form-group row">
+                                <label for="{{ field.id }}" class="col-sm-2 col-form-label muli-font font-weight-bold">{{ field.label_tag }}</label>
+                                <div class="col-sm-10">
+                                    <div class="md-form mt-0">
+                                        {{ field }}
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+
+
+                            <input type="submit" class="btn btn-primary btn-submit">
+                        </form>
+                    </div>
+                    <div class="col-sm-2"></div>
+                </div>
+            </div><!--section container end-->
+        </div><!--col-sm-12 end-->
+    </div><!--row end-->
+</div><!--container fluid end-->
+{% endblock home_content %}
+
+{% block home_js %}
+    <script src="{% static 'home/plugins/select2/js/select2.min.js' %}"></script>
+    <script>
+        // initialize select for page length option
+        $('select').select2();
+    </script>
+{% endblock home_js %}
+

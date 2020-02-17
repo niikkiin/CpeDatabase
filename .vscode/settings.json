@@ -1,0 +1,5 @@
+{
+    "python.pythonPath": "/home/heaven/anaconda3/envs/cpedatabase/bin/python",
+    "python.linting.pylintEnabled": true,
+    "python.linting.enabled": true
+}

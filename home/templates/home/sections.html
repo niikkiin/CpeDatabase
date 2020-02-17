@@ -2,13 +2,93 @@
 {% load static %}
 
 
-{% block home_content %}
-<nav aria-label="breadcrumb">
-    <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="#">Home</a></li>
-        <li class="breadcrumb-item"><a href="#">Library</a></li>
-        <li class="breadcrumb-item active">Data</li>
-    </ol>
-</nav>
-{% endblock home_content %}
+{% block home_css %}
+    <link href="{% static 'home/css/sections.css' %}" rel="stylesheet">
+{% endblock home_css %}
     
+
+{% block home_content %}
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="section-container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h1 class="display-5 m-0 pl-3 float-left open-font">Sections</h1>
+                        <a href="{% url 'home:create-section' %}" class="btn btn-primary btn-view float-right"><i class="fas fa-plus"></i> Add Section</a>
+                    </div>
+                </div>
+
+                <div class="row pt-3">
+                    {% for section in section_list %}
+                        <div class="col-sm-4">
+                            <!--STUB Card -->
+                            <div class="card mb-5 mx-5">
+                                <!-- Card image -->
+                                <img class="card-img-top img-card" src="{% static 'home/images/student2.png' %}" alt="Card image cap">
+                                <!-- Card content -->
+                                <div class="card-body">
+                                    <h4 class="card-title muli-font"><a>Section {{ section.name }}</a></h4>
+                                    <p class="card-text">
+                                        <div class="year muli-font">
+                                            A.Y {{ section.academic_year }}
+                                        </div>
+                                    </p>
+                                    <div class="row">
+                                        <div class="col-md-6 col-sm-12 float-left">
+                                            <a href="{% url 'home:student-list-view' %}" class="btn btn-primary btn-view">View</a>
+                                        </div>
+                                        <div class="col-md-6 col-sm-12">
+                                            <p class="pt-3">
+                                                39 students
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><!--STUB Card End-->
+                        </div>
+                    {% endfor %}
+                </div><!--row end-->
+            </div><!--section container-->
+        </div>
+    </div><!--row end-->
+</div><!--container fluid end-->
+
+<!-- <div class="row">
+    <div class="col-12">
+        <div class="jumbotron">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h1 class="display-3 m-0">Sections</h1>
+                    <a href="#" class="btn btn-primary float-right">ADD SECTION</a>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-4">
+                    <div class="card">
+                        <div class="row">
+                            <div class="col-12 text-center align-self-center">
+                                <h4 class="card-title m-0">
+                                    1
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+{% endblock home_content %}
+
+{% block home_js %}
+    <script>
+        // FOR ACTIVE LI OF SIDEBAR
+        $('ul.sidebar-nav li.dashboard').removeClass('active');
+        $('ul.sidebar-nav li.user').removeClass('active');
+        $('ul.sidebar-nav li.students').addClass('active');
+    </script>
+{% endblock home_js %}

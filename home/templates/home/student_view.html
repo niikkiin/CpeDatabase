@@ -1,0 +1,115 @@
+{% extends 'home/base.html' %}
+{% load static %}
+
+
+{% block home_css %}
+    <link rel="stylesheet" href="{% static 'home/plugins/datatables/datatables.min.css' %}">
+    <link rel="stylesheet" href="{% static 'home/plugins/select2/css/select2.min.css' %}">
+    <link rel="stylesheet" href="{% static 'home/css/sections.css' %}" >
+{% endblock home_css %}
+    
+
+{% block home_content %}
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="section-container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h1 class="display-5 m-0 pl-3 float-left open-font">Section 1</h1>
+                        <a href="{% url 'home:create-student' %}" class="btn btn-primary btn-view float-right"><i class="fas fa-plus"></i> Add Student</a>
+                    </div>
+                    <!-- <div class="col-sm-12">
+                        <span class="total-students muli-font ml-3">39 students</span>
+                    </div> -->
+                </div>
+                <div class="row my-3">
+                    <div class="col-md-12">
+                        <div class="entries float-left d-inline">
+                            <!-- page length option -->
+                        </div>
+                        <input type="text" class="float-right w-25 tableSearchInput form-control" name="search" id="searchStudentList" placeholder="Search student here">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 col-sm-12">
+                        <table id="studentListTable" class="table" style="width: 100%;">
+                            <thead>
+                                    <th>Student Number</th>
+                                    <th>Student Name</th>
+                                    <th>Gender</th>
+                                    <th>Actions</th>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>2015-02986-MN-0</td>
+                                    <td><a class="table-link" href="#">Abarca, Nikki Gener</a></td>
+                                    <td>Female</td>
+                                    <td>
+                                        <button class="btn btn-success btn-view-table btn-sm"><i class="fas fa-clipboard"></i> View</button>
+                                        <button class="btn btn-warning btn-sm"><i class="fas fa-pencil-alt"></i> Update</button>
+                                        <button class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i> Delete</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>2015-03540-MN-0</td>
+                                    <td><a class="table-link" href="#">Villon, Arjan Heaven Estanislao</a></td>
+                                    <td>Male</td>
+                                    <td>
+                                        <button class="btn btn-success btn-view-table btn-sm"><i class="fas fa-clipboard"></i> View</button>
+                                        <button class="btn btn-warning btn-sm"><i class="fas fa-pencil-alt"></i> Update</button>
+                                        <button class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i> Delete</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div><!--col-12 end-->
+                </div><!--row end-->
+
+            </div><!--section container-->
+        </div>
+    </div><!--row end-->
+</div><!--container fluid end-->
+
+{% endblock home_content %}
+
+{% block home_js %}
+    <script src="{% static 'home/plugins/datatables/datatables.js' %}"></script>
+    <script src="{% static 'home/plugins/select2/js/select2.min.js' %}"></script>
+    <script>
+
+        $(document).ready(function() {
+            // FOR ACTIVE LI OF SIDEBAR
+            $('ul.sidebar-nav li.dashboard').removeClass('active');
+            $('ul.sidebar-nav li.user').removeClass('active');
+            $('ul.sidebar-nav li.students').addClass('active');
+
+
+            $('#studentListTable').DataTable({
+                "dom": 'lrtip',
+                "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
+                "oLanguage": {
+                    sLengthMenu: "_MENU_",
+                }
+            });
+            
+            // For creating custom search bar
+            studentListTable = $('#studentListTable').DataTable();  
+
+            $('#searchStudentList').keyup(function(){
+                studentListTable.search($(this).val()).draw() ;
+            });
+
+
+            // Move page length option
+            $('#studentListTable_length').detach().appendTo('.entries');
+
+            // initialize select for page length option
+            $('#studentListTable_length select').select2({
+                minimumResultsForSearch: -1
+            });
+        } );
+    </script>
+{% endblock home_js %}

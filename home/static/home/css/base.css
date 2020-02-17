@@ -9,7 +9,7 @@
 }
 
 .breadcrumb-item a{
-    color: #e65b62;
+    color: #f84c51;
 }
 
 .section-container {
@@ -23,7 +23,7 @@
 
 /* SECTION INPUT */
 .theme-input {
-    background: #FBF6EF !important;
+    background: #fcebee !important;
     border-radius: 20px !important;
     border-bottom: none !important;
     outline: none !important;
@@ -65,7 +65,7 @@
     height: 40px !important;
 }
 .select2-container--default .select2-selection--single {
-    background: #FBF6EF !important;
+    background: #fcebee !important;
     border: none !important;
     border-radius: 20px !important;
     border-bottom: none !important;
@@ -90,3 +90,25 @@
     -webkit-box-shadow: none !important;
     box-shadow: none !important;
 }
+
+/* SECTION FONTS */
+.muli-font {
+    font-family: 'Muli', sans-serif;
+}
+
+.cabin-font {
+    font-family: 'Cabin', sans-serif;
+}
+
+.tomorrow-font {
+    font-family: 'Tomorrow', sans-serif;
+}
+
+.open-font {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.monserrat-font {
+    font-family: 'Montserrat', sans-serif;
+}
+

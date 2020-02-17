@@ -32,3 +32,6 @@ class StudentCreateView(CreateView):
     def form_valid(self, form):
         print(form.instance.last_name)
         return super().form_valid(form)
+
+class StudentIndividualView(TemplateView):
+    template_name = 'home/student_individual_view.html'

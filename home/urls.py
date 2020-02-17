@@ -10,4 +10,7 @@ urlpatterns = [
 
     path('student/', views.StudentsListView.as_view(), name='student-list-view'),
     path('student/create/', views.StudentCreateView.as_view(), name='create-student'),
+
+    # NOTE temp
+    path('student/view/', views.StudentIndividualView.as_view(), name='view-student'),
 ]

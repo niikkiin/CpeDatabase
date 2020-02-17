@@ -12,10 +12,26 @@ class DashBoardView(LoginRequiredMixin, TemplateView):
     login_url = '/'
     template_name = 'home/dashboard.html'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        sections = Section.objects.all()
+        student_count = Student.objects.count()
+        context["sections"] = sections 
+        context["all_student_count"] = student_count 
+        return context
+    
+
 class SectionsListView(LoginRequiredMixin, ListView):
     login_url = '/'
     template_name = 'home/sections.html'
     model = Section
+
+    def get_context_data(self, **kwargs):
+        student_count = Student.objects.count()
+        context = super(SectionsListView, self).get_context_data(**kwargs)
+        context['all_student_count'] = student_count
+        return context
+    
 
 class SectionCreateView(LoginRequiredMixin, CreateView):
     login_url = '/'
@@ -26,6 +42,11 @@ class SectionCreateView(LoginRequiredMixin, CreateView):
         print(form.instance.name)
 
         return super().form_valid(form)
+
+class StudentList(LoginRequiredMixin, ListView):
+    login_url = '/'
+    template_name = 'home/student_view.html'
+    model = Student
 
 class StudentsListView(LoginRequiredMixin, ListView):
     login_url = '/'

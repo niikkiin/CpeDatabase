@@ -1,11 +1,129 @@
 {% extends 'home/base.html' %}
 {% load static %}
 
+{% block home_css %}
+    <link rel="stylesheet" href="{% static 'home/plugins/chartjs/Chart.css' %}">
+    <link href="{% static 'home/plugins/fullcalendar/packages/core/main.css' %}" rel="stylesheet" />
+    <link href="{% static 'home/plugins/fullcalendar/packages/daygrid/main.css' %}" rel="stylesheet" />
+{% endblock home_css %}
+    
+
 {% block breadcrumbs %}
     <li class="breadcrumb-item active">Home</li>
 {% endblock breadcrumbs %}
 
 {% block home_content %}
-    hello
+    <div class="row">
+        <div class="col-md-8">
+            <div class="welcome-container shadow-sm pt-4 pl-5">
+                <div class="row">
+                    <div class="col-md-7">
+                        <h1>Welcome back, <strong class="bright-pink font-weight-bold muli-font text-capitalize">{{ user.username }}</strong> </h1>
+                        <div class="welcome-note pt-3">
+                            This is the Computer Engineering Department Database System that lets you manage the information of the 5th year students.
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="portrait">
+                            <img src="{% static 'home/images/avatar.png' %}" alt="img-dashboard" class="img-fluid img-dashboard">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="number-container shadow-sm mt-4 pt-4 px-5">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h3>Total Number of Students: <strong class="bright-pink">{{ all_student_count }}</strong></h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <canvas id="studentListBarChart" style="width:90%;height:90%;"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div><!--col-md-8 end-->
+        <div class="col-md-4">
+            <div class="col-sm-12">
+                <div class="side-container p-4 shadow-sm">
+                    <div id="calendar"></div>
+                </div>
+            </div>
+            <div class="col-sm-12">
+                <div class="bottom-container shadow-sm mt-4 pt-4 px-5">
+                    d
+                </div>
+            </div>
+        </div><!--col-md-4 end-->
+    </div>
 {% endblock home_content %}
+
+
+{% block home_js %}
+    <script src="{% static 'home/plugins/chartjs/Chart.js' %}"></script>
+    <script src="{% static 'home/plugins/fullcalendar/packages/core/main.js' %}"></script>
+    <script src="{% static 'home/plugins/fullcalendar/packages/daygrid/main.js' %}"></script>
+    <script>
+
+    // SECTION Calendar
+    document.addEventListener('DOMContentLoaded', function() {
+        var calendarEl = document.getElementById('calendar');
+
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+            aspectRatio: 1.2,
+            plugins: [ 'dayGrid' ]
+        });
+
+        calendar.render();
+    });
+
+    // SECTION Student Number Bar Chart
+    var chartLabels = [ {% for section in sections %}
+                            'Section {{ section.name }}',
+                        {% endfor %}]
+    var chartData = [{% for section in sections %}
+                        {{ section.student_set.count }},
+                    {% endfor %}]
+
+
+    var ctx = document.getElementById('studentListBarChart').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: chartLabels,
+            datasets: [{
+                label: 'Number of Students',
+                data: chartData,
+                backgroundColor: [
+                    '#fd8fa0',
+                    '#fdcfd6',
+                    '#f84c71',
+                    '#c8acb7',
+                    '#2e294e',
+                    '#ac858b'
+                ],
+                borderColor: [
+                    '#fd8fa0',
+                    '#fdcfd6',
+                    '#f84c71',
+                    '#c8acb7',
+                    '#2e294e',
+                    '#ac858b'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+    </script>
+{% endblock home_js %}
     

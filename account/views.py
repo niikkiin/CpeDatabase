@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.views.generic import TemplateView
 from account.forms import UserForm, UserProfileInfoForm
+from django.contrib import messages
 
 # for Login
 from django.contrib.auth import authenticate, login, logout
@@ -70,11 +71,13 @@ def user_login(request):
         else:
             print("Someone tried to login and failed!")
             print("Username: {} and password {}".format(username, password))
-            return HttpResponse("Invalid Login Details Supplied!")
+            # return HttpResponse("Invalid Login Details Supplied!")
+            messages.error(request, 'That user account does not exist.')
+            return redirect('account:user_login')
         
     else:
         return render(request, 'account/login.html', {})
     
 def user_logout(request):
     logout(request)
-    return HttpResponseRedirect(reverse('account:login'))
+    return HttpResponseRedirect(reverse('account:user_login'))

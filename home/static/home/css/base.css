@@ -1,5 +1,32 @@
 @import url('https://fonts.googleapis.com/css?family=Cabin|Montserrat|Muli|Open+Sans|Tomorrow&display=swap');
 
+/* SECTION FONTS */
+.muli-font {
+    font-family: 'Muli', sans-serif;
+}
+
+.cabin-font {
+    font-family: 'Cabin', sans-serif;
+}
+
+.tomorrow-font {
+    font-family: 'Tomorrow', sans-serif;
+}
+
+.open-font {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.monserrat-font {
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+/* SECTION Colors */
+.bright-pink {
+    color: #f84c71 !important;
+}
+
 
 .breadcrumb{
     background: #f7f7ff;
@@ -92,26 +119,6 @@
     box-shadow: none !important;
 }
 
-/* SECTION FONTS */
-.muli-font {
-    font-family: 'Muli', sans-serif;
-}
-
-.cabin-font {
-    font-family: 'Cabin', sans-serif;
-}
-
-.tomorrow-font {
-    font-family: 'Tomorrow', sans-serif;
-}
-
-.open-font {
-    font-family: 'Open Sans', sans-serif;
-}
-
-.monserrat-font {
-    font-family: 'Montserrat', sans-serif;
-}
 
 /* SECTION LOGOUT */
 .logout-container {

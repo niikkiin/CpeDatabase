@@ -9,6 +9,7 @@
     <title>CPE Database System</title>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="{% static 'home/plugins/fontawesome/css/all.css' %}">
+    <link rel="stylesheet" href="{% static 'home/plugins/fontawesome/css/solid.css' %}">
     <!-- Bootstrap core CSS -->
     <link href="{% static 'home/plugins/mdbootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
     <!-- Material Design Bootstrap -->
@@ -30,9 +31,11 @@
     <div id="wrapper">
         <aside id="sidebar-wrapper">
             <div class="sidebar-brand">
-                <h2>Logo</h2>
+                <div class="profile-img-container text-center" id="profile-container">
+                    <img src="{% static 'home/images/student1.png' %}" class="img-fluid img-profile" alt="profile pic" id="profile-pic">
+                </div>
             </div>
-            <ul class="sidebar-nav">
+            <ul class="sidebar-nav muli-font">
                 <!-- <li class="menu-bar">
                     <a href="#" class="navbar-brand" id="sidebar-toggle"><i class="fas fa-bars"></i></a>
                 </li> -->
@@ -42,12 +45,9 @@
                 <li class="py-1 students">
                     <a href="{% url 'home:sections' %}"><i class="far fa-university fa-lg pr-5"></i>Students</a>
                 </li>
-                <li class="py-1 users">
-                    <a href="#"><i class="fa fa-user"></i>Users</a>
-                </li>
             </ul>
             <!-- STUB LOGOUT -->
-            <a href="#" class="logout-container">
+            <a href="{% url 'account:logout' %}" class="logout-container">
                 <div class="logout">
                     <i class="fas fa-sign-out-alt fa-2x"></i> 
                 </div>

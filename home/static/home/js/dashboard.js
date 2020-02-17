@@ -1,9 +1,18 @@
 const $button  = document.querySelector('#sidebar-toggle');
 const $wrapper = document.querySelector('#wrapper');
+const $image = document.querySelector('#profile-pic');
+const $imageContainer = document.querySelector('#profile-container');
 
+const $sidebarBrand = document.querySelector('.sidebar-brand');
+const $sidebarNav = document.querySelector('.sidebar-nav');
 $button.addEventListener('click', (e) => {
     e.preventDefault();
     $wrapper.classList.toggle('toggled');
+    $image.classList.toggle('minimized');
+    $imageContainer.classList.toggle('minimized');
+    $sidebarBrand.classList.toggle('minimized');
+    $sidebarNav.classList.toggle('minimized');
+    
 });
 
 function copyToClipboard(element) {
@@ -23,4 +32,3 @@ function copyToClipboard(element) {
     
 }
 
-  

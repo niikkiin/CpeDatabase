@@ -8,53 +8,67 @@
     <div class="container login-container">
         <div class="card login-card shadow-none">
             <div class="row">
-                <div class="col-sm-12 imaginary">
+                <div class="col-sm-6 img-container">
+                    
+                </div><!--col end-->
+                <div class="col-sm-6">
+                    <div class="row">
+                        <div class="col-sm-12 imaginary">
 
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-4">
-
-                </div>
-
-                <div class="col-8">
-                    <form method="POST" action="{% url 'account:user_login' %}" class="text-center">
-                        {% csrf_token %}
-                        <!-- <img src="{% static 'account/img/login-image.jpg' %}" class="login-image mt-3" alt="Responsive Image"> -->
-
-                        <!-- <p class="h4 my-4">Sign in</p> -->
-                        <div class="row my-4">
-                            <div class="col-12">
-                                <h4 class="font-weight-bold">Login to Database</h4>
-                            </div>
                         </div>
+                        <div class="col-sm-12">
+                            <form method="POST" action="{% url 'account:user_login' %}" class="text-center">
+                                {% csrf_token %}
+                                <!-- <img src="{% static 'account/img/login-image.jpg' %}" class="login-image mt-3" alt="Responsive Image"> -->
+        
+                                <!-- <p class="h4 my-4">Sign in</p> -->
+                                <div class="row my-4">
+                                    <div class="col-12">
+                                        <h4 class="font-weight-bold">Login to Database</h4>
+                                    </div>
+                                </div>
 
-                        <div class="row mx-5">
-                            <div class="col-12">
-                                <center>
-                                    <input type="text" name="username" placeholder="Enter username" class="w-75 my-1 form-control login-text-input" autocomplete="off">
-                                </center>
-                            </div>
+                                <!-- Error Message -->
+                                {% if messages %}
+                                <div class="row my-4">
+                                    <div class="col-12">
+                                        {% for message in messages %}
+                                            <span class="muli-font bright-pink">
+                                                {{ message}}
+                                            </span>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                                {% endif %}
+                                
+                                <div class="row mx-5">
+                                    <div class="col-12">
+                                        <center>
+                                            <input type="text" name="username" placeholder="Enter username" class="w-75 my-1 form-control login-text-input" autocomplete="off">
+                                        </center>
+                                    </div>
+                                </div>
+                                <!-- <label for="username">Username:</label> -->
+                                
+                                <div class="row mx-5">
+                                    <div class="col-12">
+                                        <center>
+                                            <input type="password" name="password" placeholder="Enter password" class="w-75 my-1 form-control login-text-input">
+                                        </center>
+                                    </div>
+                                </div>
+                                <!-- <label for="password">Password:</label> -->
+                                <div class="row mx-5">
+                                    <div class="col-12">
+                                        <center>
+                                            <input type="submit" value="Login" class="w-75 my-4 login-button">
+                                        </center>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
-                        <!-- <label for="username">Username:</label> -->
-                        
-                        <div class="row mx-5">
-                            <div class="col-12">
-                                <center>
-                                    <input type="password" name="password" placeholder="Enter password" class="w-75 my-1 form-control login-text-input">
-                                </center>
-                            </div>
-                        </div>
-                        <!-- <label for="password">Password:</label> -->
-                        <div class="row mx-5">
-                            <div class="col-12">
-                                <center>
-                                    <input type="submit" value="Login" class="w-75 my-4 login-button">
-                                </center>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+                    </div>
+                </div><!--col end-->
             </div>
         </div>
     </div>

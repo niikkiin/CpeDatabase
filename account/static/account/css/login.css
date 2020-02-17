@@ -1,4 +1,54 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat|Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Cabin|Muli|Open+Sans|Tomorrow&display=swap');
+
+/* SECTION FONTS */
+.muli-font {
+    font-family: 'Muli', sans-serif;
+}
+
+.cabin-font {
+    font-family: 'Cabin', sans-serif;
+}
+
+.tomorrow-font {
+    font-family: 'Tomorrow', sans-serif;
+}
+
+.open-font {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.monserrat-font {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.pink-gradient {
+    background: rgb(248,76,113) !important;
+    background: linear-gradient(45deg, rgba(248,76,113,1) 35%, rgba(253,207,214,1) 97%) !important;
+}
+
+.bright-pink {
+    color: #f84c71 !important;
+}
+
+.form-control:focus{
+    outline: none !important;
+    border-color: #000 !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    border: 1px solid #000 !important;
+    transition: 0.4s ease-in-out;
+}
+
+.img-container {
+    background-image: url('../../../static/account/images/school.jpg') !important;
+    width: 100% !important;
+    /* height: 100% !important; */
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+    background: #666666;
+    height: 80vh;
+}
 
 .login-container{
     padding: 10vh;

@@ -30,9 +30,9 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="view-all-container m-2 pt-4 pl-3 muli-font">
-                            The Computer Engineering Department currently have <strong class="font-weight-bold">1045</strong> 5th year students. Do you want to view them all? 
+                            The Computer Engineering Department currently have <strong class="font-weight-bold">{{ all_student_count }}</strong> 5th year students. Do you want to view them all? 
                             <!-- <a href="#" class="view-all-link">View All</a> -->
-                            <a href="#" class="btn btn-danger border-20">View All Students</a>
+                            <a href="{% url 'home:student-list' %}" class="btn btn-danger border-20">View All Students</a>
                         </div>
                     </div><!--col-md-12 end-->
                 </div><!--row end-->
@@ -46,7 +46,7 @@
                                 <img class="card-img-top img-card" src="{% static 'home/images/student2.png' %}" alt="Card image cap">
                                 <!-- Card content -->
                                 <div class="card-body">
-                                    <h4 class="card-title muli-font"><a>Section {{ section.name }} {{ section.pk }}</a></h4>
+                                    <h4 class="card-title muli-font"><a>Section {{ section.name }}</a></h4>
                                     <p class="card-text">
                                         <div class="year muli-font">
                                             A.Y {{ section.academic_year }}

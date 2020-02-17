@@ -26,7 +26,7 @@ class StudentForm(forms.ModelForm):
 
     class Meta():
         model = Student
-        fields = ('student_number', 'last_name', 'first_name', 'section', 'gender')
+        fields = ('student_number', 'last_name', 'first_name', 'middle_name', 'gender')
 
     def __init__(self, *args, **kwargs):
         kwargs.setdefault('label_suffix', '')  # globally override the Django >=1.6 default of ':'

@@ -38,11 +38,11 @@
                                     </p>
                                     <div class="row">
                                         <div class="col-md-6 col-sm-12 float-left">
-                                            <a href="{% url 'home:student-list-view' %}" class="btn btn-primary btn-view">View</a>
+                                            <a href="{% url 'home:student-list-view' pk=section.pk %}" class="btn btn-primary btn-view">View</a>
                                         </div>
                                         <div class="col-md-6 col-sm-12">
                                             <p class="pt-3">
-                                                39 students
+                                                {{ section.student_set.count }} students
                                             </p>
                                         </div>
                                     </div>

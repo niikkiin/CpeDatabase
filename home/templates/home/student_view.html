@@ -18,8 +18,8 @@
             <div class="section-container">
                 <div class="row">
                     <div class="col-sm-12">
-                        <h1 class="display-5 m-0 pl-3 float-left open-font">Section 1</h1>
-                        <a href="{% url 'home:create-student' %}" class="btn btn-primary btn-view float-right"><i class="fas fa-plus"></i> Add Student</a>
+                        <h1 class="display-5 m-0 pl-3 float-left open-font">Section {{ section.name }}</h1>
+                        <a href="{% url 'home:create-student' pk=section.pk %}" class="btn btn-primary btn-view float-right"><i class="fas fa-plus"></i> Add Student</a>
                     </div>
                     <!-- <div class="col-sm-12">
                         <span class="total-students muli-font ml-3">39 students</span>
@@ -43,26 +43,26 @@
                                     <th>Actions</th>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>2015-02986-MN-0</td>
-                                    <td><a class="table-link" href="#">Abarca, Nikki Gener</a></td>
-                                    <td>Female</td>
-                                    <td>
-                                        <button class="btn btn-success btn-view-table btn-sm"><i class="fas fa-clipboard"></i> View</button>
-                                        <button class="btn btn-warning btn-sm"><i class="fas fa-pencil-alt"></i> Update</button>
-                                        <button class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i> Delete</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>2015-03540-MN-0</td>
-                                    <td><a class="table-link" href="#">Villon, Arjan Heaven Estanislao</a></td>
-                                    <td>Male</td>
-                                    <td>
-                                        <button class="btn btn-success btn-view-table btn-sm"><i class="fas fa-clipboard"></i> View</button>
-                                        <button class="btn btn-warning btn-sm"><i class="fas fa-pencil-alt"></i> Update</button>
-                                        <button class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i> Delete</button>
-                                    </td>
-                                </tr>
+                                
+                                {% for student in student_list %}
+                                    <tr>
+                                        <td>{{ student.student_number }}</td>
+                                        <td><a class="table-link" href="#">{{ student.last_name }}, {{ student.first_name }} {{ student.middle_name }}</a></td>
+                                        <td>
+                                            {% if student.gender == 0 %}
+                                                Male
+                                            {% else %}
+                                                Female
+                                            {% endif %}
+                                        </td>
+                                        <td>
+                                            <button class="btn btn-success btn-view-table btn-sm"><i class="fas fa-clipboard"></i> View</button>
+                                            <a href="{% url 'home:update-student' pk=student.pk %}" class="btn btn-warning btn-sm"><i class="fas fa-pencil-alt"></i> Update</a>
+                                            <button class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i> Delete</button>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                        
                             </tbody>
                         </table>
                     </div><!--col-12 end-->

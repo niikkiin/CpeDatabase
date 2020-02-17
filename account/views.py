@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic import TemplateView
 from account.forms import UserForm, UserProfileInfoForm
 
@@ -47,6 +47,11 @@ def register(request):
                                                 'registered':registered})
     
 def user_login(request):
+
+    user = request.user
+
+    if user.is_authenticated:
+        return redirect('home:home')
     
     if request.method == "POST":
         username = request.POST.get('username')

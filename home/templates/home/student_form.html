@@ -14,7 +14,13 @@
             <div class="section-container">
                 <div class="row">
                     <div class="col-sm-12">
-                        <h3 class="title pl-3">Add Student</h3>
+                        
+                        {% if not form.instance.pk %}
+                            <h3 class="title pl-3">Add Student to Section {{ section.name }}</h3>
+                        {% else %}
+                            <h3 class="title pl-3">Edit Student</h3>
+                        {% endif %}
+                            
                     </div>
                 </div>
                 

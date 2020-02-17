@@ -19,9 +19,14 @@ class Student(models.Model):
     student_number  = models.CharField(max_length=17, unique=True)
     last_name       = models.CharField(max_length=30)
     first_name      = models.CharField(max_length=30)
+    middle_name     = models.CharField(max_length=30, blank=True)
     gender          = models.IntegerField(choices=GENDER_CHOICES, default=0)
 
     def __str__(self):
         return self.last_name
+    
+    def get_absolute_url(self):
+        return reverse("home:student-list-view", kwargs={"pk": self.section.pk})
+    
     
     

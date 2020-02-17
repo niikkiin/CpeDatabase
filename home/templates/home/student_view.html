@@ -78,11 +78,39 @@ ul#select2-studentListTable_length-8p-results, .select2-dropdown {
                                             {% endif %}
                                         </td>
                                         <td>
-                                            <a href="{% url 'home:view-student' %}" class="btn btn-success btn-view-table btn-sm"><i class="fas fa-clipboard"></i> View</a>
+                                            <a href="{% url 'home:view-student' pk=student.pk %}" class="btn btn-success btn-view-table btn-sm"><i class="fas fa-clipboard"></i> View</a>
                                             <a href="{% url 'home:update-student' pk=student.pk %}" class="btn btn-warning btn-sm mx-3"><i class="fas fa-pencil-alt"></i> Update</a>
-                                            <span class="btn btn-danger btn-sm" data-toggle="modal" data-target="#confirmDelete"><i class="fas fa-trash-alt"></i> Delete</span>
+                                            <span class="btn btn-danger btn-sm" data-toggle="modal" data-target="#confirmDelete{{ student.pk }}"><i class="fas fa-trash-alt"></i> Delete</span>
                                         </td>
                                     </tr>
+
+                                    <!-- STUB CONFIRM DELETE MODAL -->
+                                    <div class="modal fade" id="confirmDelete{{ student.pk }}" tabindex="-1" role="dialog" aria-labelledby="confirmDelete" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-body">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <center class="py-5 ">
+                                                                <i class="fas fa-trash fa-10x animated jello" style="color: #f84c71 !important;"></i>
+                                                            </center>
+                                                        </div><!--col-md-12 end-->
+                                                    </div><!--row end-->
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <center>
+                                                                <button type="button" class="btn btn-warning border-20 muli-font" data-dismiss="modal">Close</button>
+                                                                <a href="{% url 'home:delete-student' pk=student.pk %}" class="btn btn-danger border-20 muli-font">Yes, Delete!</a>
+                                                            </center>
+                                                        </div><!--col-md-12 end-->
+                                                    </div><!--row end-->
+                                                </div><!--modal body end-->
+                                            </div>
+                                        </div>
+                                    </div>
                                 {% endfor %}
                             </tbody>
                         </table>
@@ -92,34 +120,6 @@ ul#select2-studentListTable_length-8p-results, .select2-dropdown {
         </div>
     </div><!--row end-->
 </div><!--container fluid end-->
-
-<!-- STUB CONFIRM DELETE MODAL -->
-<div class="modal fade" id="confirmDelete" tabindex="-1" role="dialog" aria-labelledby="confirmDelete" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-body">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-                </button>
-                <div class="row">
-                    <div class="col-md-12">
-                        <center class="py-5 ">
-                            <i class="fas fa-trash fa-10x animated jello" style="color: #f84c71 !important;"></i>
-                        </center>
-                    </div><!--col-md-12 end-->
-                </div><!--row end-->
-                <div class="row">
-                    <div class="col-md-12">
-                        <center>
-                            <button type="button" class="btn btn-warning border-20 muli-font" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-danger border-20 muli-font">Yes, Delete!</button>
-                        </center>
-                    </div><!--col-md-12 end-->
-                </div><!--row end-->
-            </div><!--modal body end-->
-        </div>
-    </div>
-</div>
 
 <!-- STUB MODAL END -->
 {% endblock home_content %}

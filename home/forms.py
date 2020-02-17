@@ -35,3 +35,7 @@ class StudentForm(forms.ModelForm):
             visible.field.widget.attrs['class'] = 'form-control theme-input muli-font'
             # self.fields['name'].widget.attrs['placeholder'] = 'Enter the section name'
             # self.fields['academic_year'].widget.attrs['placeholder'] = 'Enter the academic year'
+            self.fields['student_number'].widget.attrs['placeholder'] = 'e.g. 2015-00000-MN-0'
+            self.fields['last_name'].widget.attrs['placeholder'] = 'Dela Cruz'
+            self.fields['first_name'].widget.attrs['placeholder'] = 'Juan'
+            self.fields['middle_name'].widget.attrs['placeholder'] = 'Abad'

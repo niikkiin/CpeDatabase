@@ -1,5 +1,6 @@
-from django.shortcuts import render, get_object_or_404
-from django.views.generic import TemplateView, CreateView, ListView, UpdateView
+from django.shortcuts import render, redirect,get_object_or_404
+from django.urls import reverse
+from django.views.generic import TemplateView, CreateView, ListView, UpdateView, DetailView
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 from home.models import Section, Student
@@ -66,8 +67,10 @@ class StudentCreateView(LoginRequiredMixin, CreateView):
         context["section"] = section
         return context
 
-class StudentIndividualView(TemplateView):
+class StudentDetailView(DetailView):
     template_name = 'home/student_individual_view.html'
+    context_object_name = 'student'
+    model = Student
 
 
 class StudentUpdateView(LoginRequiredMixin, UpdateView):
@@ -84,3 +87,9 @@ class StudentUpdateView(LoginRequiredMixin, UpdateView):
 
         context["section"] = section
         return context
+
+def delete_student(request, pk):
+    student = Student.objects.get(pk=pk)
+    section = student.section.pk
+    student.delete()
+    return redirect('home:student-list-view', pk=section)

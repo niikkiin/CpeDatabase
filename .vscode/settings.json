@@ -1,3 +1,5 @@
 {
-    "python.pythonPath": "D:\\Program Files\\Anaconda3\\envs\\databaseEnv\\python.exe"
+    "python.pythonPath": "/home/heaven/anaconda3/envs/cpedatabase/bin/python",
+    "python.linting.pylintEnabled": true,
+    "python.linting.enabled": true
 }

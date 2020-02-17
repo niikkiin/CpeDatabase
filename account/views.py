@@ -75,7 +75,6 @@ def user_login(request):
     else:
         return render(request, 'account/login.html', {})
     
-@login_required
 def user_logout(request):
     logout(request)
     return HttpResponseRedirect(reverse('account:login'))

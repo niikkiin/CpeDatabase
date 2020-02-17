@@ -37,7 +37,7 @@
                     <a href="#" class="navbar-brand" id="sidebar-toggle"><i class="fas fa-bars"></i></a>
                 </li> -->
                 <li class="dashboard active">
-                    <a href="#"><i class="fas fa-home pr-5"></i>Dashboard</a>
+                    <a href="{% url 'home:home' %}"><i class="fas fa-home pr-5"></i>Dashboard</a>
                 </li>
                 <li class="students">
                     <a href="{% url 'home:sections' %}"><i class="far fa-university pr-5"></i>Students</a>
@@ -47,7 +47,7 @@
                 </li>
             </ul>
         </aside>
-          
+    
         <div id="navbar-wrapper">
             <nav class="navbar navbar-inverse">
                 <div class="container-fluid">
@@ -58,20 +58,26 @@
                 </div>
             </nav>
         </div>
-          
+    
         <section id="content-wrapper">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <!-- <li class="breadcrumb-item"><a href="#">Home</a></li>
                     <li class="breadcrumb-item"><a href="#">Library</a></li>
-                    <li class="breadcrumb-item active">Data</li>
+                    <li class="breadcrumb-item active">Data</li> -->
+                    
+                    {% block breadcrumbs %}
+                        
+                    {% endblock breadcrumbs %}
+                        
+                        
                 </ol>
             </nav>
             {% block home_content %}
 
             {% endblock home_content %}
         </section>
-          
+    
 
     </div>
     <!-- /Start your project here-->

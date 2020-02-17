@@ -6,6 +6,16 @@
     <link rel="stylesheet" href="{% static 'home/plugins/select2/css/select2.min.css' %}">
 {% endblock home_css %}
 
+{% block breadcrumbs %}
+    <li class="breadcrumb-item"> <a href="{% url 'home:sections' %}">Sections</a></li>
+    <li class="breadcrumb-item"><a href="{% url 'home:student-list-view' pk=section.pk %}">Section {{ section.name }}</a></li>
+    {% if not form.instance.pk %}
+        <li class="breadcrumb-item active">Create Student</li>
+    {% else %}
+        <li class="breadcrumb-item active">Edit Student</li>
+    {% endif %}
+{% endblock breadcrumbs %}
+
 
 {% block home_content %}
 <div class="container-fluid">

@@ -71,3 +71,12 @@ class StudentUpdateView(LoginRequiredMixin, UpdateView):
     template_name = 'home/student_form.html'
     model = Student
     form_class = StudentForm
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        pk = self.kwargs['pk']
+        student = get_object_or_404(Student, pk=pk)
+        section = Section.objects.get(pk=student.section.pk)
+
+        context["section"] = section
+        return context

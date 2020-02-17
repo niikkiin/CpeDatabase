@@ -5,6 +5,11 @@
     <link rel="stylesheet" href="{% static 'home/css/sections.css' %}" >
 {% endblock home_css %}
 
+{% block breadcrumbs %}
+    <li class="breadcrumb-item"> <a href="{% url 'home:sections' %}"> Sections</a></li>
+    <li class="breadcrumb-item active">Create Section</li>
+{% endblock breadcrumbs %}
+
 {% block home_content %}
 <div class="container-fluid">
     <div class="row">

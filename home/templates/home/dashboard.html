@@ -1,6 +1,10 @@
 {% extends 'home/base.html' %}
 {% load static %}
 
+{% block breadcrumbs %}
+    <li class="breadcrumb-item active">Home</li>
+{% endblock breadcrumbs %}
+
 {% block home_content %}
     hello
 {% endblock home_content %}

@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'import_export',
     'account',
     'home',
 ]
@@ -135,4 +136,5 @@ MEDIA_URL = '/media/'
 LOGIN_URL = '/'
 LOGIN_REDIRECT_URL = '/'
 
-
+# Only set to true if database will undergo imports or exports
+IMPORT_EXPORT_USE_TRANSACTIONS = True

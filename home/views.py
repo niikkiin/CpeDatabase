@@ -66,12 +66,16 @@ class StudentCreateView(LoginRequiredMixin, CreateView):
         context["section"] = section
         return context
 
+class StudentIndividualView(TemplateView):
+    template_name = 'home/student_individual_view.html'
+
+
 class StudentUpdateView(LoginRequiredMixin, UpdateView):
     login_url = '/'
     template_name = 'home/student_form.html'
     model = Student
     form_class = StudentForm
-
+    
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         pk = self.kwargs['pk']

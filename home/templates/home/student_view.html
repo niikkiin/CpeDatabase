@@ -6,6 +6,25 @@
     <link rel="stylesheet" href="{% static 'home/plugins/datatables/datatables.min.css' %}">
     <link rel="stylesheet" href="{% static 'home/plugins/select2/css/select2.min.css' %}">
     <link rel="stylesheet" href="{% static 'home/css/sections.css' %}" >
+    <style>
+        #studentListTable_length .select2-container--default .select2-selection--single {
+    border-radius: 10px !important;
+    width: 80px !important;
+}
+
+#studentListTable_length .select2-container .select2-selection--single .select2-selection__rendered {
+    text-align: left !important;
+}
+
+#studentListTable_length .select2-container--default .select2-selection--single .select2-selection__arrow {
+    right: -16px !important;
+}
+
+ul#select2-studentListTable_length-8p-results, .select2-dropdown {
+    width: 80px !important;
+    text-align: center !important;
+}
+    </style>
 {% endblock home_css %}
 
 {% block breadcrumbs %}
@@ -47,12 +66,11 @@
                                     <th>Actions</th>
                             </thead>
                             <tbody>
-                                
                                 {% for student in student_list %}
                                     <tr>
-                                        <td>{{ student.student_number }}</td>
-                                        <td><a class="table-link" href="#">{{ student.last_name }}, {{ student.first_name }} {{ student.middle_name }}</a></td>
-                                        <td>
+                                        <td class="pt-4">{{ student.student_number }}</td>
+                                        <td class="pt-4"><a class="table-link" href="#">{{ student.last_name }}, {{ student.first_name }} {{ student.middle_name }}</a></td>
+                                        <td class="pt-4">
                                             {% if student.gender == 0 %}
                                                 Male
                                             {% else %}
@@ -60,23 +78,50 @@
                                             {% endif %}
                                         </td>
                                         <td>
-                                            <button class="btn btn-success btn-view-table btn-sm"><i class="fas fa-clipboard"></i> View</button>
-                                            <a href="{% url 'home:update-student' pk=student.pk %}" class="btn btn-warning btn-sm"><i class="fas fa-pencil-alt"></i> Update</a>
-                                            <button class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i> Delete</button>
+                                            <a href="{% url 'home:view-student' %}" class="btn btn-success btn-view-table btn-sm"><i class="fas fa-clipboard"></i> View</a>
+                                            <a href="{% url 'home:update-student' pk=student.pk %}" class="btn btn-warning btn-sm mx-3"><i class="fas fa-pencil-alt"></i> Update</a>
+                                            <span class="btn btn-danger btn-sm" data-toggle="modal" data-target="#confirmDelete"><i class="fas fa-trash-alt"></i> Delete</span>
                                         </td>
                                     </tr>
                                 {% endfor %}
-                        
                             </tbody>
                         </table>
                     </div><!--col-12 end-->
                 </div><!--row end-->
-
             </div><!--section container-->
         </div>
     </div><!--row end-->
 </div><!--container fluid end-->
 
+<!-- STUB CONFIRM DELETE MODAL -->
+<div class="modal fade" id="confirmDelete" tabindex="-1" role="dialog" aria-labelledby="confirmDelete" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+                <div class="row">
+                    <div class="col-md-12">
+                        <center class="py-5 ">
+                            <i class="fas fa-trash fa-10x animated jello" style="color: #f84c71 !important;"></i>
+                        </center>
+                    </div><!--col-md-12 end-->
+                </div><!--row end-->
+                <div class="row">
+                    <div class="col-md-12">
+                        <center>
+                            <button type="button" class="btn btn-warning border-20 muli-font" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-danger border-20 muli-font">Yes, Delete!</button>
+                        </center>
+                    </div><!--col-md-12 end-->
+                </div><!--row end-->
+            </div><!--modal body end-->
+        </div>
+    </div>
+</div>
+
+<!-- STUB MODAL END -->
 {% endblock home_content %}
 
 {% block home_js %}
@@ -96,7 +141,11 @@
                 "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
                 "oLanguage": {
                     sLengthMenu: "_MENU_",
+                },
+                "language": {
+                    "info": "Showing _START_ to _END_ of _TOTAL_ students",
                 }
+                
             });
             
             // For creating custom search bar
@@ -107,8 +156,10 @@
             });
 
 
-            // Move page length option
+            // Move page length option, page previous and next, show entries
             $('#studentListTable_length').detach().appendTo('.entries');
+            $('#studentListTable_info').addClass('float-left d-inline');
+            $('div.dataTables_wrapper div.dataTables_info').addClass('pt-1');
 
             // initialize select for page length option
             $('#studentListTable_length select').select2({

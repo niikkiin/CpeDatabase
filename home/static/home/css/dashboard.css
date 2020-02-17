@@ -28,9 +28,9 @@ a:focus {
     margin-left: -250px;
     overflow-y: auto;
     overflow-x: hidden;
-    background: #fdf1e5;
+    background: #fdcfd6;
     transition: all 0.5s ease;
-    font-family: 'Muli', sans-serif;
+    font-family: 'Open Sans', sans-serif !important;
 }
 
 #wrapper.toggled #sidebar-wrapper {

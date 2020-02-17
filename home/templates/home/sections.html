@@ -18,13 +18,25 @@
     <div class="row">
         <div class="col-sm-12">
             <div class="section-container">
+                
+
                 <div class="row">
                     <div class="col-sm-12">
                         <h1 class="display-5 m-0 pl-3 float-left open-font">Sections</h1>
                         <a href="{% url 'home:create-section' %}" class="btn btn-primary btn-view float-right"><i class="fas fa-plus"></i> Add Section</a>
                     </div>
                 </div>
-
+                <!-- STUB View All -->
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="view-all-container m-2 pt-4 pl-3 muli-font">
+                            The Computer Engineering Department currently have <strong class="font-weight-bold">1045</strong> 5th year students. Do you want to view them all? 
+                            <!-- <a href="#" class="view-all-link">View All</a> -->
+                            <a href="#" class="btn btn-danger border-20">View All Students</a>
+                        </div>
+                    </div><!--col-md-12 end-->
+                </div><!--row end-->
+                <!-- STUB View All end-->
                 <div class="row pt-3">
                     {% for section in section_list %}
                         <div class="col-sm-4">
@@ -59,33 +71,6 @@
         </div>
     </div><!--row end-->
 </div><!--container fluid end-->
-
-<!-- <div class="row">
-    <div class="col-12">
-        <div class="jumbotron">
-            <div class="row">
-                <div class="col-12 text-center">
-                    <h1 class="display-3 m-0">Sections</h1>
-                    <a href="#" class="btn btn-primary float-right">ADD SECTION</a>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-4">
-                    <div class="card">
-                        <div class="row">
-                            <div class="col-12 text-center align-self-center">
-                                <h4 class="card-title m-0">
-                                    1
-                                </h4>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div> -->
 {% endblock home_content %}
 
 {% block home_js %}
@@ -94,5 +79,6 @@
         $('ul.sidebar-nav li.dashboard').removeClass('active');
         $('ul.sidebar-nav li.user').removeClass('active');
         $('ul.sidebar-nav li.students').addClass('active');
+
     </script>
 {% endblock home_js %}

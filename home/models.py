@@ -19,7 +19,7 @@ class Student(models.Model):
     student_number  = models.CharField(max_length=17, unique=True)
     last_name       = models.CharField(max_length=30)
     first_name      = models.CharField(max_length=30)
-    middle_name     = models.CharField(max_length=30, blank=True)
+    middle_name     = models.CharField(max_length=30, blank=True, null=True)
     gender          = models.IntegerField(choices=GENDER_CHOICES, default=0)
 
     def __str__(self):

@@ -72,6 +72,7 @@
     outline: none !important;
     box-shadow: none !important;
     padding: 12px 0 12px 20px !important;
+    width: 102% !important;
 }
 .select2-dropdown {
     border: 1px solid #FBF6EF !important;
@@ -112,3 +113,22 @@
     font-family: 'Montserrat', sans-serif;
 }
 
+/* SECTION LOGOUT */
+.logout-container {
+    color: #000;
+    transition: 0.4s ease-in-out;
+}
+.logout-container:hover{
+    color: #f84c71;
+}
+.logout {
+    position: absolute;
+    bottom: 25px;
+    left: 20px;
+}
+.logout-container .logout-text {
+    font-size: x-large;
+    position: absolute;
+    bottom: 25px;
+    left: 90px;
+}

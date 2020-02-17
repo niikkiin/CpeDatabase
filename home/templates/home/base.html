@@ -37,15 +37,22 @@
                     <a href="#" class="navbar-brand" id="sidebar-toggle"><i class="fas fa-bars"></i></a>
                 </li> -->
                 <li class="dashboard active">
-                    <a href="{% url 'home:home' %}"><i class="fas fa-home pr-5"></i>Dashboard</a>
+                    <a href="{% url 'home:home' %}"><i class="fas fa-home fa-lg pr-5"></i>Dashboard</a>
                 </li>
                 <li class="py-1 students">
-                    <a href="{% url 'home:sections' %}"><i class="far fa-university pr-5"></i>Students</a>
+                    <a href="{% url 'home:sections' %}"><i class="far fa-university fa-lg pr-5"></i>Students</a>
                 </li>
                 <li class="py-1 users">
                     <a href="#"><i class="fa fa-user"></i>Users</a>
                 </li>
             </ul>
+            <!-- STUB LOGOUT -->
+            <a href="#" class="logout-container">
+                <div class="logout">
+                    <i class="fas fa-sign-out-alt fa-2x"></i> 
+                </div>
+                    <span class="d-inline logout-text">Logout</span>
+            </a>
         </aside>
     
         <div id="navbar-wrapper">

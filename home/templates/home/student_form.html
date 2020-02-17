@@ -4,6 +4,11 @@
 
 {% block home_css %}
     <link rel="stylesheet" href="{% static 'home/plugins/select2/css/select2.min.css' %}">
+    <style>
+        .select2-dropdown {
+            width: 1080px !important;
+        }
+    </style>
 {% endblock home_css %}
 
 {% block breadcrumbs %}
@@ -65,6 +70,11 @@
 {% block home_js %}
     <script src="{% static 'home/plugins/select2/js/select2.min.js' %}"></script>
     <script>
+        // FOR ACTIVE LI OF SIDEBAR
+        $('ul.sidebar-nav li.dashboard').removeClass('active');
+        $('ul.sidebar-nav li.user').removeClass('active');
+        $('ul.sidebar-nav li.students').addClass('active');
+
         // initialize select for page length option
         $('select').select2();
     </script>

@@ -1,0 +1,49 @@
+.student-container {
+    background-color: #fdb6b8;
+    border-radius: 50px;
+    border-top-left-radius: 0px !important;
+}
+.container-view {
+    border: 3px solid #fdb6b8;
+    border-radius: 50px;
+    /* border-top-left-radius: 0px !important; */
+    height: 70vh;
+    min-height: 100%;
+    background-color: #fff;
+}
+.container-name {
+    background-color: #fdb6b8;
+    width: max-content;
+    padding: 10px 10px 4px 10px;
+    border-radius: 50px;
+    border-bottom-left-radius: 0px !important;
+}
+
+/* SECTION BUTTONS */
+.btn-warning:not([disabled]):not(.disabled):active {
+    background-color: #f84c71 !important;
+}
+
+.btn-danger {
+    background-color: #f84c71 !important;
+    border-radius: 20px !important;
+    
+}
+.btn-warning {
+    background-color: #fab8b2 !important;
+    border-radius: 20px;
+}
+
+.student-number-text {
+    font-weight: bold;
+    transition: 0.4s ease-in-out;
+    cursor: pointer;
+}
+.student-number-text:hover{
+    color: #f84c71;
+}
+
+/* SECTION Colors */
+.bright-pink {
+    color: #f84c71 !important;
+}

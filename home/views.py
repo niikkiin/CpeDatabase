@@ -6,6 +6,8 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from home.models import Section, Student
 from home.forms import SectionForm, StudentForm
 
+from account.models import Log
+
 # Create your views here.
 
 class DashBoardView(LoginRequiredMixin, TemplateView):
@@ -39,7 +41,12 @@ class SectionCreateView(LoginRequiredMixin, CreateView):
     form_class = SectionForm
 
     def form_valid(self, form):
-        print(form.instance.name)
+
+        create_action = "{} added section {}".format(self.request.user, form.instance.name)
+        action = Log.objects.create(
+            user = self.request.user,
+            action = create_action,
+        )
 
         return super().form_valid(form)
 
@@ -78,6 +85,13 @@ class StudentCreateView(LoginRequiredMixin, CreateView):
         section = get_object_or_404(Section, pk=pk)
 
         form.instance.section = section
+
+        create_action = "{} added {} to section {}".format(self.request.user, form.instance.last_name, section)
+        action = Log.objects.create(
+            user = self.request.user,
+            action = create_action,
+        )
+        
         return super().form_valid(form)
     
     def get_context_data(self, **kwargs):
@@ -100,6 +114,15 @@ class StudentUpdateView(LoginRequiredMixin, UpdateView):
     model = Student
     form_class = StudentForm
     
+    def form_valid(self, form):
+        update_action = "{} updated the data of {}".format(self.request.user, form.instance.last_name)
+        action = Log.objects.create(
+            user = self.request.user,
+            action = update_action,
+        )
+
+        return super().form_valid(form)
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         pk = self.kwargs['pk']
@@ -112,5 +135,12 @@ class StudentUpdateView(LoginRequiredMixin, UpdateView):
 def delete_student(request, pk):
     student = Student.objects.get(pk=pk)
     section = student.section.pk
+
+    delete_action = "{} deleted the data of {}".format(request.user, student.last_name)
+    action = Log.objects.create(
+        user = request.user,
+        action = delete_action,
+    )
+
     student.delete()
     return redirect('home:student-list-view', pk=section)

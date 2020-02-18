@@ -350,3 +350,16 @@ a:focus {
 .fc-unthemed td.fc-today {
     background-color: #fdcfd6 !important;
 }
+
+/* SECTION Actions Container */
+.lighter-pink {
+    background-color: #fdcfd6;
+}
+.light-pink {
+    background-color: #fd8fa0;
+}
+.action-container {
+    border-radius: 10px;
+    padding: 5px;
+    font-family: 'Muli', sans-serif;
+}

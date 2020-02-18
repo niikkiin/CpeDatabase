@@ -6,6 +6,7 @@ app_name = 'home'
 urlpatterns = [
     path('', views.DashBoardView.as_view(), name='home'),
     path('sections/', views.SectionsListView.as_view(), name='sections'),
+    path('sections/manage', views.ManageSectionsListView.as_view(), name='sections-manage'),
     path('sections/create/', views.SectionCreateView.as_view(), name='create-section'),
 
     # NOTE temp

@@ -144,7 +144,7 @@ h3.title {
     color: #e65a5f;
     background-color: #fdcfd6;
 }
-#studentListTable_info {
+#studentListTable_info, #sectionListTable_info {
     font-family: 'Muli', sans-serif;
     margin-left: 10px;
 }
@@ -154,4 +154,15 @@ h3.title {
     background-color: #fdcfd6;
     border-radius: 20px;
     height: 10vh;
+}
+
+
+/* SECTION update sections */
+.update-section {
+    cursor: pointer;
+    transition: 0.4s ease-in-out;
+    color: #000;
+}
+.update-section:hover {
+    color: #f84c71;
 }

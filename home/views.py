@@ -32,6 +32,17 @@ class SectionsListView(LoginRequiredMixin, ListView):
         context['all_student_count'] = student_count
         return context
     
+class ManageSectionsListView(LoginRequiredMixin, ListView):
+    login_url = '/'
+    template_name = 'home/view_all_section.html'
+    model = Section
+
+    def get_context_data(self, **kwargs):
+        student_count = Student.objects.count()
+        context = super(ManageSectionsListView, self).get_context_data(**kwargs)
+        context['all_student_count'] = student_count
+        return context
+    
 
 class SectionCreateView(LoginRequiredMixin, CreateView):
     login_url = '/'

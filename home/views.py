@@ -3,6 +3,8 @@ from django.urls import reverse
 from django.views.generic import TemplateView, CreateView, ListView, UpdateView, DetailView
 from django.contrib.auth.mixins import LoginRequiredMixin
 
+from django.contrib import messages
+
 from home.models import Section, Student
 from home.forms import SectionForm, StudentForm
 
@@ -18,8 +20,11 @@ class DashBoardView(LoginRequiredMixin, TemplateView):
         context = super().get_context_data(**kwargs)
         sections = Section.objects.all()
         student_count = Student.objects.count()
+        logs = Log.objects.order_by('-created_at')
+
         context["sections"] = sections 
         context["all_student_count"] = student_count 
+        context["logs"] = logs
         return context
     
 
@@ -60,6 +65,37 @@ class SectionCreateView(LoginRequiredMixin, CreateView):
         )
 
         return super().form_valid(form)
+
+class SectionUpdateView(LoginRequiredMixin, UpdateView):
+    login_url = '/'
+    template_name = 'home/section_form.html'
+    model = Section
+    form_class = SectionForm
+
+    def form_valid(self, form):
+        update_action = "{} updated the data of Section {}".format(self.request.user, form.instance.name)
+        action = Log.objects.create(
+            user = self.request.user,
+            action = update_action,
+        )
+
+        return super().form_valid(form)
+
+    
+
+
+
+def delete_section(request, pk):
+    section = Section.objects.get(pk=pk)
+
+    delete_action = "{} deleted the data of Section {}".format(request.user, section.name)
+    action = Log.objects.create(
+        user = request.user,
+        action = delete_action,
+    )
+
+    section.delete()
+    return redirect('home:sections-manage')
 
 class StudentList(LoginRequiredMixin, ListView):
     login_url = '/'
@@ -105,6 +141,15 @@ class StudentCreateView(LoginRequiredMixin, CreateView):
         
         return super().form_valid(form)
     
+    # def form_invalid(self, form, **kwargs):
+    #     if Student.objects.filter(student_number=form.instance.student_number).exists():
+    #         messages.error(self.request, 'The student number is already taken')
+    #     else:
+    #         messages.error(self.request, 'Please follow the correct format for student number. e.g.(2015-02986-MN-0)')
+    #     pk = self.kwargs['pk']
+    #     return redirect('home:create-student', pk=pk)
+        
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         pk = self.kwargs['pk']

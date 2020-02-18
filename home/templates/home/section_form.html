@@ -3,11 +3,17 @@
 
 {% block home_css %}
     <link rel="stylesheet" href="{% static 'home/css/sections.css' %}" >
+    <link rel="stylesheet" href="{% static 'home/plugins/select2/css/select2.min.css' %}">
 {% endblock home_css %}
 
 {% block breadcrumbs %}
-    <li class="breadcrumb-item"> <a href="{% url 'home:sections' %}"> Sections</a></li>
-    <li class="breadcrumb-item active">Create Section</li>
+    {% if not form.instance.pk %}
+        <li class="breadcrumb-item"> <a href="{% url 'home:sections' %}"> Sections</a></li>
+        <li class="breadcrumb-item active">Create Section</li>
+    {% else %}
+        <li class="breadcrumb-item"> <a href="{% url 'home:sections-manage' %}"> Sections</a></li>
+        <li class="breadcrumb-item active">Update Section {{ section.name }}</li>
+    {% endif %}
 {% endblock breadcrumbs %}
 
 {% block home_content %}
@@ -17,7 +23,13 @@
             <div class="section-container">
                 <div class="row">
                     <div class="col-sm-12">
-                        <h3 class="title pl-3">Add Section</h3>
+                        
+                        {% if not form.instance.pk %}
+                            <h3 class="title pl-3">Add Section</h3>
+                        {% else %}
+                            <h3 class="title pl-3">Update Section</h3>
+                        {% endif %}
+                            
                     </div>
                 </div>
                 
@@ -51,10 +63,16 @@
 
 
 {% block home_js %}
+    <script src="{% static 'home/plugins/select2/js/select2.min.js' %}"></script>
     <script>
         // FOR ACTIVE LI OF SIDEBAR
         $('ul.sidebar-nav li.dashboard').removeClass('active');
         $('ul.sidebar-nav li.user').removeClass('active');
         $('ul.sidebar-nav li.students').addClass('active');
+
+        // initialize select for page length option
+        $('select').select2({
+            minimumResultsForSearch: -1
+        });
     </script>
 {% endblock home_js %}

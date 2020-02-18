@@ -363,3 +363,8 @@ a:focus {
     padding: 5px;
     font-family: 'Muli', sans-serif;
 }
+
+/* SCroll */
+.created-log {
+    color: #777777;
+}

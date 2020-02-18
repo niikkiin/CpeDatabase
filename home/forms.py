@@ -2,8 +2,12 @@ from django import forms
 from home.models import Section, Student
 from home.choices import *
 
-class SectionForm(forms.ModelForm):
+# validation 
+# from django.core.validators import RegexValidator
+# student_number_validator = RegexValidator(r"^(199\d|200\d|2020)-(\b\d{5}\b)-(MN|mn)-(0|1)$", "Please follow the correct format for student number. e.g.(2015-02986-MN-0)")
 
+class SectionForm(forms.ModelForm):
+    academic_year = forms.ChoiceField(choices=ACADEMIC_YEAR_CHOICES)
     class Meta():
         model = Section
         fields = ('name', 'academic_year')
@@ -23,6 +27,7 @@ class SectionForm(forms.ModelForm):
 
 class StudentForm(forms.ModelForm):
     gender = forms.ChoiceField(choices=GENDER_CHOICES)
+    student_number  = forms.CharField(max_length=17)
 
     class Meta():
         model = Student

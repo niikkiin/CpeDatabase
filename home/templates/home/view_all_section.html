@@ -77,8 +77,7 @@
                                         <td class="pt-4">{{ section.name }}</td>
                                         <td class="pt-4">{{ section.academic_year }}</td>
                                         <td>
-                                            <a href="#" class="btn btn-success btn-view-table btn-sm"><i class="fas fa-clipboard"></i> View</a>
-                                            <a href="#" class="btn btn-warning btn-sm mx-3"><i class="fas fa-pencil-alt"></i> Update</a>
+                                            <a href="{% url 'home:update-section' pk=section.pk %}" class="btn btn-warning btn-sm mx-3"><i class="fas fa-pencil-alt"></i> Update</a>
                                             <span class="btn btn-danger btn-sm" data-toggle="modal" data-target="#confirmDelete{{ section.pk }}"><i class="fas fa-trash-alt"></i> Delete</span>
                                         </td>
                                     </tr>
@@ -102,7 +101,7 @@
                                                         <div class="col-md-12">
                                                             <center>
                                                                 <button type="button" class="btn btn-warning border-20 muli-font" data-dismiss="modal">Close</button>
-                                                                <a href="#" class="btn btn-danger border-20 muli-font">Yes, Delete!</a>
+                                                                <a href="{% url 'home:delete-section' pk=section.pk %}" class="btn btn-danger border-20 muli-font">Yes, Delete!</a>
                                                             </center>
                                                         </div><!--col-md-12 end-->
                                                     </div><!--row end-->
@@ -149,7 +148,16 @@
         });
 
         // For creating custom search bar
-        sectionListTable = $('#sectionListTable').DataTable();  
+        sectionListTable = $('#sectionListTable').DataTable(); 
+        
+        // #column3_search is a <input type="text"> element
+        $('#searchSectionList').on( 'keyup', function () {
+            sectionListTable
+                .columns( 0 )
+                .search( this.value )
+                .draw();
+        } );
+
 
         $('#searchSectionList').keyup(function(){
             sectionListTable.search($(this).val()).draw() ;

@@ -93,7 +93,7 @@
                                 {% for student in student_list %}
                                     <tr>
                                         <td class="pt-4">{{ student.student_number }}</td>
-                                        <td class="pt-4"><a class="table-link" href="#">{{ student.last_name }}, {{ student.first_name }} {{ student.middle_name }}</a></td>
+                                        <td class="pt-4"><a class="table-link" href="#">{{ student.last_name }}, {{ student.first_name }} {{ student.middle_name }} </a></td>
                                         
                                         <!-- Show section if it is not passed as a parameter -->
                                         {% if not section %}

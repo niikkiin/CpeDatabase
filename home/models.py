@@ -1,7 +1,7 @@
 from django.db import models
 from django.urls import reverse
 
-from home.choices import *
+from home.choices import GENDER_CHOICES
 
 # Create your models here.
 class Section(models.Model):
@@ -19,7 +19,7 @@ class Student(models.Model):
     student_number  = models.CharField(max_length=17, unique=True)
     last_name       = models.CharField(max_length=30)
     first_name      = models.CharField(max_length=30)
-    middle_name     = models.CharField(max_length=30, blank=True, null=True)
+    middle_name     = models.CharField(max_length=30, blank=True, default='')
     gender          = models.IntegerField(choices=GENDER_CHOICES, default=0)
 
     def __str__(self):
@@ -27,6 +27,3 @@ class Student(models.Model):
     
     def get_absolute_url(self):
         return reverse("home:student-list-view", kwargs={"pk": self.section.pk})
-    
-    
-    

@@ -38,7 +38,18 @@
                             
                     </div>
                 </div>
-                
+                <!-- Error Message -->
+                {% if messages %}
+                <div class="row my-4">
+                    <div class="col-12">
+                        {% for message in messages %}
+                            <span class="muli-font bright-pink">
+                                {{ message}}
+                            </span>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endif %}
                 <!-- inputs -->
                 <div class="row pl-3 text-center">
                     <div class="col-sm-10">

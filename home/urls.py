@@ -8,6 +8,8 @@ urlpatterns = [
     path('sections/', views.SectionsListView.as_view(), name='sections'),
     path('sections/manage', views.ManageSectionsListView.as_view(), name='sections-manage'),
     path('sections/create/', views.SectionCreateView.as_view(), name='create-section'),
+    path('section/update/<int:pk>/', views.SectionUpdateView.as_view(), name='update-section'),
+    path('sections/delete/<int:pk>/', views.delete_section, name='delete-section'),
 
     # NOTE temp
     path('student/list/', views.StudentList.as_view(), name='student-list'),

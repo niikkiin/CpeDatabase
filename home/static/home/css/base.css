@@ -1,5 +1,112 @@
 @import url('https://fonts.googleapis.com/css?family=Cabin|Montserrat|Muli|Open+Sans|Tomorrow&display=swap');
 
+/* ANCHOR THEMING */
+/* SECTION Theme Pink */
+.pink-theme {
+    --primary-color:            #f84c71;
+    --secondary-color:          #fcebee;
+    --third-color:              #fcf5ec;
+    --fourth-color:             #FCA5A5;
+    --fifth-color:              #fdcfd6;
+    
+    /* Chart Background Colors */
+    --chart-first-color:        #fd8fa0;
+    --chart-second-color:        #fdcfd6;
+    --chart-third-color:        #f84c71;
+    --chart-fourth-color:        #c8acb7;
+    --chart-fifth-color:        #2e294e;
+    --chart-sixth-color:        #ac858b;
+
+    /* Container Color */
+    --dark-color:               #000000;
+    --light-color:              #ffffff;
+    --gray-color:               #F5F5F5;
+    --background-color:         #f7f7ff;
+    --container-color :         #ffffff;
+
+    /* Sidebar Components */
+    --sidebar-active-bg-color:  #000000;
+    --sidebar-bg-color:         #fdcfd6;
+
+    /* Input */
+    --search-input-border-color:#c7c4c4;
+    --search-input-focus:       #000000;
+
+    /* Table */
+    --table-border:             #eeeeee;
+    --table-row-hover:          #fef9f0;
+
+    /* Text Color */
+    --dark-text-color:          #000000;
+    --secondary-text-color:     #777777;
+    --light-text-color:         #ffffff;
+
+    /* Buttons */
+    --primary-button:           #000000;
+    --primary-button-hover:     #555555;
+    --secondary-button:         #fab8b2;
+    --secondary-button-hover:   #f84c71;
+    --third-button:             #ac858b;
+    --third-button-hover:       #4e2326;
+    --fourth-button:            #f84c71;
+    --fourth-button-hover:      #fab8b2;
+}
+/* SECTION Theme Peach */
+.peach-theme {
+    --primary-color:            #4e2326;
+    --secondary-color:          #eaccb1;
+    --third-color:              #fcf5ec;
+    --fourth-color:             #eb966f;
+    --fifth-color:              #ffead6;
+    
+    /* Chart Background Colors */
+    --chart-first-color:        #eb966f;
+    --chart-second-color:       #ffead6;
+    --chart-third-color:        #4e2326;
+    --chart-fourth-color:       #c18240;
+    --chart-fifth-color:        #a15a32;
+    --chart-sixth-color:        #ac858b;
+
+    /* Container Color */
+    --dark-color:               #000000;
+    --light-color:              #ffffff;
+    --gray-color:               #F5F5F5;
+    --background-color:         #ffead6;
+    --container-color :         #ffffff;
+
+    /* Sidebar Components */
+    --sidebar-active-bg-color:  #4e2326;
+    --sidebar-bg-color:         #ffac84;
+
+    /* Input */
+    --search-input-border-color:#c7c4c4;
+    --search-input-focus:       #4e2326;
+
+    /* Table */
+    --table-border:             #eeeeee;
+    --table-row-hover:          #fef9f0;
+
+    /* Text Color */
+    --dark-text-color:          #000000;
+    --secondary-text-color:     #777777;
+    --light-text-color:         #ffffff;
+
+    /* Buttons */
+    --primary-button:           #895323;
+    --primary-button-hover:     #eb966f;
+
+    --secondary-button:         #eb966f;
+    --secondary-button-hover:   #4e2326;
+
+    --third-button:             #f88d52;
+    --third-button-hover:       #f8b96f;
+
+    --fourth-button:            #4e2326;
+    --fourth-button-hover:      #895323;
+}
+
+
+
 /* SECTION FONTS */
 .muli-font {
     font-family: 'Muli', sans-serif;
@@ -24,23 +131,23 @@
 
 /* SECTION Colors */
 .bright-pink {
-    color: #f84c71 !important;
+    color: var(--primary-color) !important;
 }
 
 
 .breadcrumb{
-    background: #f7f7ff;
+    background: var(--background-color);
     border-radius: 2rem;
     margin-left: 0.8em;
     font-family: 'Muli', sans-serif;
 }
 
 .breadcrumb-item a{
-    color: #f84c51;
+    color: var(--primary-color);
 }
 
 .section-container {
-    background-color: #fff;
+    background-color: var(--container-color);
     border-radius: 50px;
     min-height: 100%;
     /* height: 80vh; */
@@ -50,7 +157,7 @@
 
 /* SECTION INPUT */
 .theme-input {
-    background: #fcebee !important;
+    background: var(--secondary-color) !important;
     border-radius: 20px !important;
     border-bottom: none !important;
     outline: none !important;
@@ -60,24 +167,24 @@
 
 /* SECTION BUTTONS */
 .btn-view, .btn-submit {
-    background-color: #000 !important;
+    background-color: var(--primary-button) !important;
     border-radius: 20px;
     font-family: 'Muli', sans-serif;
     font-weight: bold;
 }
 .btn-submit:hover, .btn-submit:focus, .btn-submit:active, .btn-primary:not([disabled]):not(.disabled):active{
-    background-color: #555555 !important;
+    background-color: var(--primary-button-hover) !important;
 }
 
 
 /* SECTION Select2 */
 .select2-container--default .select2-results__option--highlighted[aria-selected]{
-    background: #000 !important;
-    color: #FCF5EC !important;
+    background: var(--dark-color) !important;
+    color: var(--third-color) !important;
 }
 .select2-container--default .select2-results__option[aria-selected=true] {
-    background-color: #FCA5A5 !important;
-    color: #FCF5EC !important;
+    background-color: var(--fourth-color) !important;
+    color: var(--third-color) !important;
 }
 .select2-container .select2-selection--single .select2-selection__rendered {
     text-align: left;
@@ -92,7 +199,7 @@
     height: 40px !important;
 }
 .select2-container--default .select2-selection--single {
-    background: #fcebee !important;
+    background: var(--secondary-color) !important;
     border: none !important;
     border-radius: 20px !important;
     border-bottom: none !important;
@@ -102,7 +209,7 @@
     width: 102% !important;
 }
 .select2-dropdown {
-    border: 1px solid #FBF6EF !important;
+    border: 1px solid var(--third-color) !important;
     border-bottom-left-radius: 20px !important;
     border-bottom-right-radius: 20px !important;
 
@@ -114,7 +221,7 @@
 
 .select2-container--default .select2-search--dropdown .select2-search__field:hover,.select2-container--default .select2-search--dropdown .select2-search__field:focus  {
     outline: none !important;
-    border-color: #4e2326 !important;
+    border-color: var(--primary-color) !important;
     -webkit-box-shadow: none !important;
     box-shadow: none !important;
 }
@@ -122,11 +229,11 @@
 
 /* SECTION LOGOUT */
 .logout-container {
-    color: #000;
+    color: var(--dark-text-color);
     transition: 0.4s ease-in-out;
 }
 .logout-container:hover{
-    color: #f84c71;
+    color: var(--primary-color);
 }
 .logout {
     position: absolute;
@@ -146,9 +253,8 @@ ul.errorlist {
 }
 
 .student-number-error {
-    background-color: #FCA5A5;
+    background-color: var(--fourth-color);
     border-radius: 20px;
     padding: 20px;
-    /* color: #000 !important; */
     margin: 20px 20px 0 20px;
 }

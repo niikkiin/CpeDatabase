@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 {% load static %}
-<html lang="en">
+<html lang="en" class="pink-theme">
 
 <head>
     <meta charset="utf-8">
@@ -22,7 +22,6 @@
     {% block home_css %}
         
     {% endblock home_css %}
-        
 </head>
 
 <body>
@@ -59,9 +58,22 @@
             <nav class="navbar navbar-inverse">
                 <div class="container-fluid">
                     <div class="navbar-header">
-                        <a href="#" class="navbar-brand" id="sidebar-toggle"><i class="fas fa-bars"></i></a>
-                        CPE DATABASE SYSTEM
+                        <div class="row">
+                            <div class="col-md-12 float-left">
+                                <a href="#" class="navbar-brand" id="sidebar-toggle"><i class="fas fa-bars"></i></a>
+                                CPE DATABASE SYSTEM
+                            </div>
+                        </div>
                     </div>
+                    <!-- STUB Theme Picker -->
+                    <div class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="themePicker" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">Select Theme</a>
+                        <div class="dropdown-menu dropdown-primary" aria-labelledby="themePicker">
+                            <a id="pink-theme-button" onclick="pinkTheme()" class="dropdown-item" href="#">Pink</a>
+                            <a id="peach-theme-button" onclick="peachTheme()" class="dropdown-item" href="#">Peach</a>
+                        </div>
+                    </div><!--theme picker-->
                 </div>
             </nav>
         </div>
@@ -105,6 +117,31 @@
     {% block home_js %}
         
     {% endblock home_js %}
+    <script>
+
+
+        function setTheme(themeName) {
+            localStorage.setItem('theme', themeName);
+            document.documentElement.className = themeName;
+        }
+
+        function pinkTheme() {
+            setTheme('pink-theme');
+        }
+        
+        function peachTheme() {
+            setTheme('peach-theme');
+        }
+
+        $( document ).ready(function() {
+            if (localStorage.getItem('theme') === 'pink-theme') {
+                setTheme('pink-theme');
+            } else {
+                setTheme('peach-theme');
+            }
+        });
+
+    </script>
         
 </body>
 

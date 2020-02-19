@@ -28,43 +28,38 @@
     transition: 0.4s ease-in-out;
 }
 .card:hover {
-    -webkit-box-shadow: 0px 10px 6px 0px rgba(232,92,98,1);
-    -moz-box-shadow: 0px 10px 6px 0px rgba(232,92,98,1);
-    box-shadow: 0px 10px 6px 0px rgba(232,92,98,1);
+    -webkit-box-shadow: 0px 10px 6px 0px var(--primary-color);
+    -moz-box-shadow: 0px 10px 6px 0px var(--primary-color);
+    box-shadow: 0px 10px 6px 0px var(--primary-color);
 }
 .img-card {
     border-top-left-radius: 50px;
     border-top-right-radius: 50px;
 }
-.image-column {
-    border-top-left-radius: 50px;
-    border-top-right-radius: 50px;
-    background-color: #d0b7fe;
-    height: 20vh;
-    color: #eee;
-    /* font-size: large; */
-}
 
 .year {
-    color: #baaeba;
+    color: var(--secondary-text-color);
 }
 
 /* SECTION BUTTONS */
 
 .btn-danger {
-    /* background-color: #E46853 !important; */
-    background-color: #f84c71 !important;
+    background-color: var(--fourth-button) !important;
 }
 .btn-warning {
-    /* background-color: #E9AC1A !important; */
-    background-color: #fab8b2 !important;
+    background-color: var(--secondary-button) !important;
 }
 .btn-success.btn-view-table {
-    /* background-color: #38989D !important; */
-    background-color: #ac858b !important;
+    background-color: var(--third-button) !important;
+}
+.btn-danger:not([disabled]):not(.disabled):active {
+    background-color: var(--fourth-button-hover) !important;
 }
 .btn-warning:not([disabled]):not(.disabled):active {
-    background-color: #f84c71 !important;
+    background-color: var(--secondary-button-hover) !important;
+}
+.btn-success:not([disabled]):not(.disabled):active {
+    background-color: var(--third-button-hover) !important;
 }
 
 .border-20 {
@@ -85,8 +80,8 @@ h3.title {
 }
 
 .total-students {
-    background-color: #e85c62;
-    color: #FCF5EC;
+    background-color: var(--primary-color);
+    color: var(--third-color);
     padding: 0.5em;
     border-radius: 20px;
 }
@@ -96,36 +91,34 @@ h3.title {
 .tableSearchInput {
     border-radius: 20px;
     outline: none;
-    /* background: #fef4ea; */
     font-family: 'Muli', sans-serif;
-    /* color: #e85c62; */
-    border: 2px solid #c7c4c4;
+    border: 2px solid var(--search-input-border-color);
     transition: 0.5s ease-in-out;
 }
 .form-control:focus, select:focus, select:active, select:hover {
     outline: none !important;
-    border-color: #000 !important;
+    border-color: var(--search-input-focus) !important;
     -webkit-box-shadow: none !important;
     box-shadow: none !important;
 }
 
 .table {
-    border: 3px solid #eee;
+    border: 3px solid var(--table-border);
     border-radius: 10px;
     font-family: 'Muli', sans-serif;
 }
 .table thead th, .table tbody tr td{
-    border: 2px solid #eee !important;
+    border: 2px solid var(--table-border) !important;
 }
 .table thead th {
     font-weight: bold;
 }
 .table tbody tr:hover {
-    background: #fef9f0;
+    background: var(--table-row-hover);
     transition: 0.4s ease-in-out;
 }
 .table th:hover {
-    background-color: #fcebee;
+    background-color: var(--secondary-color);
     transition: 0.4s ease-in-out;
 }
 .table-link {
@@ -134,24 +127,35 @@ h3.title {
     transition: 0.3s ease-in-out;
 }
 .table-link:hover {
-    color: #fc8d90;
+    color: var(--fourth-color);
 }
 
 .pagination .page-item.active .page-link {
-    background-color: #000;
+    background-color: var(--dark-color);
 }
 .pagination .page-item.active .page-link:hover {
-    color: #e65a5f;
-    background-color: #fdcfd6;
+    color: var(--primary-color);
+    background-color: var(--fifth-color);
 }
-#studentListTable_info {
+#studentListTable_info, #sectionListTable_info {
     font-family: 'Muli', sans-serif;
     margin-left: 10px;
 }
 
 /* SECTION View All Students */
 .view-all-container {
-    background-color: #fdcfd6;
+    background-color: var(--fifth-color);
     border-radius: 20px;
     height: 10vh;
+}
+
+
+/* SECTION update sections */
+.update-section {
+    cursor: pointer;
+    transition: 0.4s ease-in-out;
+    color: var(--dark-text-color);
+}
+.update-section:hover {
+    color: var(--primary-color);
 }

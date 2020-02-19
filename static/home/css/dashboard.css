@@ -2,7 +2,7 @@ body {
     padding-bottom: 30px;
     position: relative;
     min-height: 100%;
-    background: #f7f7ff;
+    background: var(--background-color);
 }
 
 a {
@@ -28,7 +28,7 @@ a:focus {
     margin-left: -250px;
     overflow-y: auto;
     overflow-x: hidden;
-    background: #fdcfd6;
+    background: var(--sidebar-bg-color);
     transition: all 0.5s ease;
     font-family: 'Open Sans', sans-serif !important;
 }
@@ -57,7 +57,7 @@ a:focus {
 .sidebar-brand h2 {
     margin: 0;
     font-size: 24px;
-    color: #fff;
+    color: var(--light-text-color);
 }
 
 .sidebar-nav {
@@ -84,14 +84,14 @@ a:focus {
     display: block;
     text-decoration: none;
     margin: 0 20px 0 20px;
-    color: #000;
+    color: var(--dark-text-color);
     font-size: 18px;
 }
 .sidebar-nav > li > a:hover,
 .sidebar-nav > li.active > a {
     text-decoration: none;
-    color: #fff;
-    background: #000;
+    color: var(--light-text-color);
+    background: var(--sidebar-active-bg-color);
     margin: 0 20px 0 20px;
     border-radius: 50px;
     transition: 0.5s ease-in-out;
@@ -112,16 +112,16 @@ a:focus {
 }
 #navbar-wrapper .navbar {
     border-width: 0 0 0 0;
-    background-color: #fff;
+    background-color: var(--light-color);
     font-size: 24px;
     margin-bottom: 0;
     border-radius: 0;
 }
 #navbar-wrapper .navbar a {
-    color: #757575;
+    color: var(--secondary-text-color);
 }
 #navbar-wrapper .navbar a:hover {
-    color: #f84c71;
+    color: var(--primary-color);
 }
 
 #content-wrapper {
@@ -269,24 +269,24 @@ a:focus {
 
 /* SECTION Containers */
 .welcome-container {
-    background-color: #fff;
+    background-color: var(--container-color);
     border-radius: 30px;
     height: 25vh;
 }
 .number-container {
-    background-color: #fff;
+    background-color: var(--container-color);
     text-transform: capitalize;
     border-radius: 30px;
     height: 53vh;
 }
 .side-container {
-    background-color: #fff;
+    background-color: var(--container-color);
     text-transform: capitalize;
     border-radius: 30px;
     height: 50vh;
 }
 .bottom-container {
-    background-color: #fff;
+    background-color: var(--container-color);
     text-transform: capitalize;
     border-radius: 30px;
     height: 28vh;
@@ -296,7 +296,7 @@ a:focus {
     width: 150px;
     height: 150px;
     border-radius: 50%;
-    border: 8px solid #fff;
+    border: 8px solid var(--container-color);
     transition: 1s ease-in-out;
 
 }
@@ -312,7 +312,7 @@ a:focus {
 .profile-img-container.minimized{
     max-width: 50px;
     max-height: 50px;
-    border: 2px solid #fff;
+    border: 2px solid var(--light-color);
     transition: 0.5s ease-in-out;
     
 }
@@ -342,11 +342,62 @@ a:focus {
 
 /* SECTION CALENDAR */
 .fc-button-primary, .fc-today-button {
-    background-color: #fd8fa0 !important;
-    color: #000 !important;
+    background-color: var(--fourth-color) !important;
+    color: var(--dark-text-color) !important;
     font-family: 'Muli', sans-serif !important;
     border: none !important    ;
 }
 .fc-unthemed td.fc-today {
-    background-color: #fdcfd6 !important;
+    background-color: var(--fourth-color) !important;
+}
+
+/* SECTION Actions Container */
+.lighter-pink {
+    background-color: var(--fifth-color);
+}
+.action-container {
+    border-radius: 10px;
+    padding: 5px;
+    font-family: 'Muli', sans-serif;
+}
+
+/* SECTION Scroll */
+.created-log {
+    color: var(--secondary-text-color);
+}
+
+.scrollbar-ripe-malinka::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+    background-color: var(--gray-color);
+    border-radius: 10px; 
+}
+
+.scrollbar-ripe-malinka::-webkit-scrollbar {
+    width: 12px;
+    background-color: var(--gray-color);
+}
+
+.scrollbar-ripe-malinka::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+    background-image: -webkit-linear-gradient(330deg, var(--fourth-color) 0%, var(--primary-color) 100%);
+    background-image: linear-gradient(120deg, var(--fourth-color) 0%, var(--primary-color) 100%); 
+}
+
+.square::-webkit-scrollbar-track {
+    border-radius: 0 !important; 
+}
+
+.square::-webkit-scrollbar-thumb {
+    border-radius: 0 !important; 
+}
+
+.thin::-webkit-scrollbar {
+    width: 6px; 
+}
+
+.example-1 {
+    position: relative;
+    overflow-y: scroll;
+    height: 200px; 
 }

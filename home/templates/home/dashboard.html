@@ -5,101 +5,6 @@
     <link rel="stylesheet" href="{% static 'home/plugins/chartjs/Chart.css' %}">
     <link href="{% static 'home/plugins/fullcalendar/packages/core/main.css' %}" rel="stylesheet" />
     <link href="{% static 'home/plugins/fullcalendar/packages/daygrid/main.css' %}" rel="stylesheet" />
-    <style>
-        .scrollbar-deep-purple::-webkit-scrollbar-track {
--webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
-background-color: #F5F5F5;
-border-radius: 10px; }
-
-.scrollbar-deep-purple::-webkit-scrollbar {
-width: 12px;
-background-color: #F5F5F5; }
-
-.scrollbar-deep-purple::-webkit-scrollbar-thumb {
-border-radius: 10px;
--webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
-background-color: #512da8; }
-
-.scrollbar-deep-purple {
-scrollbar-color: #512da8 #F5F5F5;
-}
-
-.scrollbar-cyan::-webkit-scrollbar-track {
--webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
-background-color: #F5F5F5;
-border-radius: 10px; }
-
-.scrollbar-cyan::-webkit-scrollbar {
-width: 12px;
-background-color: #F5F5F5; }
-
-.scrollbar-cyan::-webkit-scrollbar-thumb {
-border-radius: 10px;
--webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
-background-color: #00bcd4; }
-
-.scrollbar-cyan {
-scrollbar-color: #00bcd4 #F5F5F5;
-}
-
-.scrollbar-dusty-grass::-webkit-scrollbar-track {
--webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
-background-color: #F5F5F5;
-border-radius: 10px; }
-
-.scrollbar-dusty-grass::-webkit-scrollbar {
-width: 12px;
-background-color: #F5F5F5; }
-
-.scrollbar-dusty-grass::-webkit-scrollbar-thumb {
-border-radius: 10px;
--webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
-background-image: -webkit-linear-gradient(330deg, #d4fc79 0%, #96e6a1 100%);
-background-image: linear-gradient(120deg, #d4fc79 0%, #96e6a1 100%); }
-
-.scrollbar-ripe-malinka::-webkit-scrollbar-track {
--webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
-background-color: #F5F5F5;
-border-radius: 10px; }
-
-.scrollbar-ripe-malinka::-webkit-scrollbar {
-width: 12px;
-background-color: #F5F5F5; }
-
-.scrollbar-ripe-malinka::-webkit-scrollbar-thumb {
-border-radius: 10px;
--webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
-background-image: -webkit-linear-gradient(330deg, #f093fb 0%, #f5576c 100%);
-background-image: linear-gradient(120deg, #f093fb 0%, #f5576c 100%); }
-
-.bordered-deep-purple::-webkit-scrollbar-track {
--webkit-box-shadow: none;
-border: 1px solid #512da8; }
-
-.bordered-deep-purple::-webkit-scrollbar-thumb {
--webkit-box-shadow: none; }
-
-.bordered-cyan::-webkit-scrollbar-track {
--webkit-box-shadow: none;
-border: 1px solid #00bcd4; }
-
-.bordered-cyan::-webkit-scrollbar-thumb {
--webkit-box-shadow: none; }
-
-.square::-webkit-scrollbar-track {
-border-radius: 0 !important; }
-
-.square::-webkit-scrollbar-thumb {
-border-radius: 0 !important; }
-
-.thin::-webkit-scrollbar {
-width: 6px; }
-
-.example-1 {
-position: relative;
-overflow-y: scroll;
-height: 200px; }
-    </style>
 {% endblock home_css %}
     
 
@@ -200,6 +105,14 @@ height: 200px; }
                         {{ section.student_set.count }},
                     {% endfor %}]
 
+    // Colors
+    var style = getComputedStyle(document.body);
+    var chartFirstColor = style.getPropertyValue('--chart-first-color');
+    var chartSecondColor = style.getPropertyValue('--chart-second-color');
+    var chartThirdColor = style.getPropertyValue('--chart-third-color');
+    var chartFourthColor = style.getPropertyValue('--chart-fourth-color');
+    var chartFifthColor = style.getPropertyValue('--chart-fifth-color');
+    var chartSixthColor = style.getPropertyValue('--chart-sixth-color');
 
     var ctx = document.getElementById('studentListBarChart').getContext('2d');
     var myChart = new Chart(ctx, {
@@ -210,20 +123,20 @@ height: 200px; }
                 label: 'Number of Students',
                 data: chartData,
                 backgroundColor: [
-                    '#fd8fa0',
-                    '#fdcfd6',
-                    '#f84c71',
-                    '#c8acb7',
-                    '#2e294e',
-                    '#ac858b'
+                    chartFirstColor,
+                    chartSecondColor,
+                    chartThirdColor,
+                    chartFourthColor,
+                    chartFifthColor,
+                    chartSixthColor
                 ],
                 borderColor: [
-                    '#fd8fa0',
-                    '#fdcfd6',
-                    '#f84c71',
-                    '#c8acb7',
-                    '#2e294e',
-                    '#ac858b'
+                    chartFirstColor,
+                    chartSecondColor,
+                    chartThirdColor,
+                    chartFourthColor,
+                    chartFifthColor,
+                    chartSixthColor
                 ],
                 borderWidth: 1
             }]

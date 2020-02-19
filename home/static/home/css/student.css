@@ -1,18 +1,18 @@
 .student-container {
-    background-color: #fdb6b8;
+    background-color: var(--fourth-color);
     border-radius: 50px;
     border-top-left-radius: 0px !important;
 }
 .container-view {
-    border: 3px solid #fdb6b8;
+    border: 3px solid var(--fourth-color);
     border-radius: 50px;
     /* border-top-left-radius: 0px !important; */
     height: 70vh;
     min-height: 100%;
-    background-color: #fff;
+    background-color: var(--container-color);
 }
 .container-name {
-    background-color: #fdb6b8;
+    background-color: var(--fourth-color);
     width: max-content;
     padding: 10px 10px 4px 10px;
     border-radius: 50px;
@@ -21,17 +21,24 @@
 
 /* SECTION BUTTONS */
 .btn-warning:not([disabled]):not(.disabled):active {
-    background-color: #f84c71 !important;
+    background-color: var(--primary-color) !important;
 }
 
 .btn-danger {
-    background-color: #f84c71 !important;
+    background-color: var(--fourth-button) !important;
     border-radius: 20px !important;
     
 }
 .btn-warning {
-    background-color: #fab8b2 !important;
+    background-color: var(--secondary-button) !important;
     border-radius: 20px;
+}
+
+.btn-danger:not([disabled]):not(.disabled):active {
+    background-color: var(--fourth-button-hover) !important;
+}
+.btn-warning:not([disabled]):not(.disabled):active {
+    background-color: var(--secondary-button-hover) !important;
 }
 
 .student-number-text {
@@ -40,10 +47,10 @@
     cursor: pointer;
 }
 .student-number-text:hover{
-    color: #f84c71;
+    color: var(--primary-color);
 }
 
 /* SECTION Colors */
 .bright-pink {
-    color: #f84c71 !important;
+    color: var(--primary-color) !important;
 }

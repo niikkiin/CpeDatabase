@@ -72,6 +72,7 @@
                         <div class="dropdown-menu dropdown-primary" aria-labelledby="themePicker">
                             <a id="pink-theme-button" onclick="pinkTheme()" class="dropdown-item" href="#">Pink</a>
                             <a id="peach-theme-button" onclick="peachTheme()" class="dropdown-item" href="#">Peach</a>
+                            <a id="peach-theme-button" onclick="darkTheme()" class="dropdown-item" href="#">Dark Blue</a>
                         </div>
                     </div><!--theme picker-->
                 </div>
@@ -124,20 +125,161 @@
             localStorage.setItem('theme', themeName);
             document.documentElement.className = themeName;
         }
+        function peach(){
+            $('.peach-img').show();
+            $('.dark-img').hide();
+            $('.pink-img').hide();
+            var myChart = new Chart(ctx, {
+                        type: 'bar',
+                        data: {
+                            labels: chartLabels,
+                            datasets: [{
+                                label: 'Number of Students',
+                                data: chartData,
+                                backgroundColor: [
+                                    '#eb966f',
+                                    '#ffead6',
+                                    '#4e2326',
+                                    '#c18240',
+                                    '#a15a32',
+                                    '#ac858b'
+                                ],
+                                borderColor: [
+                                    '#eb966f',
+                                    '#ffead6',
+                                    '#4e2326',
+                                    '#c18240',
+                                    '#a15a32',
+                                    '#ac858b'
+                                ],
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            scales: {
+                                yAxes: [{
+                                    ticks: {
+                                        beginAtZero: true
+                                    }
+                                }]
+                            }
+                        }
+                    });
+                }
 
-        function pinkTheme() {
-            setTheme('pink-theme');
-        }
-        
+                function dark() {
+                    $('.dark-img').show();
+                    $('.pink-img').hide();
+                    $('.peach-img').hide();
+                    var myChart = new Chart(ctx, {
+                        type: 'bar',
+                        data: {
+                            labels: chartLabels,
+                            datasets: [{
+                                label: 'Number of Students',
+                                data: chartData,
+                                backgroundColor: [
+                                    '#5EA5CD',
+                                    '#858DD7',
+                                    '#060714',
+                                    '#B4CAEC',
+                                    'rgb(86, 94, 160)',
+                                    '#4A53B3'
+                                ],
+                                borderColor: [
+                                    '#5EA5CD',
+                                    '#858DD7',
+                                    '#060714',
+                                    '#B4CAEC',
+                                    'rgb(86, 94, 160)',
+                                    '#4A53B3'
+                                ],
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            scales: {
+                                yAxes: [{
+                                    ticks: {
+                                        beginAtZero: true
+                                    }
+                                }]
+                            }
+                        }
+                    });
+                }
+                
+                
+                function pink(){
+                    $('.pink-img').show();
+                    $('.peach-img').hide();
+                    $('.dark-img').hide();
+                    var myChart = new Chart(ctx, {
+                        type: 'bar',
+                        data: {
+                            labels: chartLabels,
+                            datasets: [{
+                                label: 'Number of Students',
+                                data: chartData,
+                                backgroundColor: [
+                                    '#fd8fa0',
+                                    '#fdcfd6',
+                                    '#f84c71',
+                                    '#c8acb7',
+                                    '#2e294e',
+                                    '#ac858b'
+                                ],
+                                borderColor: [
+                                    '#fd8fa0',
+                                    '#fdcfd6',
+                                    '#f84c71',
+                                    '#c8acb7',
+                                    '#2e294e',
+                                    '#ac858b'
+                                ],
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            scales: {
+                                yAxes: [{
+                                    ticks: {
+                                        beginAtZero: true
+                                    }
+                                }]
+                            }
+                        }
+                    });
+                }
+
         function peachTheme() {
             setTheme('peach-theme');
+            peach();
+        }
+        
+        function pinkTheme() {
+            setTheme('pink-theme');
+            pink();
+        }
+        
+        function darkTheme() {
+            setTheme('dark-theme');
+            dark();
         }
 
         $( document ).ready(function() {
+
             if (localStorage.getItem('theme') === 'pink-theme') {
                 setTheme('pink-theme');
-            } else {
+                pink();
+            } 
+            else if (localStorage.getItem('theme') === 'peach-theme')  {
                 setTheme('peach-theme');
+                peach();
+            }
+            else {
+                setTheme('dark-theme');
+                dark();
             }
         });
 

@@ -104,8 +104,58 @@
     --fourth-button:            #4e2326;
     --fourth-button-hover:      #895323;
 }
+.dark-theme {
+    --primary-color:            #616AC9;
+    --secondary-color:          rgb(193, 211, 236);
+    --third-color:              #fcf5ec;
+    --fourth-color:             #4A53B3;
+    --fifth-color:              rgb(124, 131, 214);
+    
+    /* Chart Background Colors */
+    --chart-first-color:        #fd8fa0;
+    --chart-second-color:        #fdcfd6;
+    --chart-third-color:        #f84c71;
+    --chart-fourth-color:        #c8acb7;
+    --chart-fifth-color:        #2e294e;
+    --chart-sixth-color:        #ac858b;
 
+    /* Container Color */
+    --dark-color:               #000000;
+    --light-color:              #ffffff;
+    --gray-color:               #F5F5F5;
+    --background-color:         #E0EDFD;
+    --container-color :         #ffffff;
 
+    /* Sidebar Components */
+    --sidebar-active-bg-color:   #858DD7;
+    --sidebar-bg-color:          #060714;
+
+    /* Input */
+    --search-input-border-color:#c7c4c4;
+    --search-input-focus:       #000000;
+
+    /* Table */
+    --table-border:             #eeeeee;
+    --table-row-hover:          #E0EDFD;
+
+    /* Text Color */
+    --dark-text-color:          #ffffff;
+    --secondary-text-color:     #c4c4c4;
+    --light-text-color:         #000000;
+
+    /* Buttons */
+    --primary-button:           #060714;
+    --primary-button-hover:     #858DD7;
+
+    --secondary-button:         #5EA5CD;
+    --secondary-button-hover:   #272958;
+
+    --third-button:             #B4CAEC;
+    --third-button-hover:       #272958;
+
+    --fourth-button:            #272958;
+    --fourth-button-hover:      rgb(86, 94, 160);
+}
 
 /* SECTION FONTS */
 .muli-font {

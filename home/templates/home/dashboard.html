@@ -25,7 +25,9 @@
                     </div>
                     <div class="col-md-5">
                         <div class="portrait">
-                            <img src="{% static 'home/images/avatar.png' %}" alt="img-dashboard" class="img-fluid img-dashboard">
+                            <img src="{% static 'home/images/avatar-pink.png' %}" alt="img-dashboard" class="pink-img img-fluid img-dashboard">
+                            <img src="{% static 'home/images/avatar-peach.png' %}" alt="img-dashboard" class="peach-img img-fluid img-dashboard">
+                            <img src="{% static 'home/images/avatar-dark.png' %}" alt="img-dashboard" class="dark-img img-fluid img-dashboard">
                         </div>
                     </div>
                 </div>
@@ -106,13 +108,13 @@
                     {% endfor %}]
 
     // Colors
-    var style = getComputedStyle(document.body);
-    var chartFirstColor = style.getPropertyValue('--chart-first-color');
-    var chartSecondColor = style.getPropertyValue('--chart-second-color');
-    var chartThirdColor = style.getPropertyValue('--chart-third-color');
-    var chartFourthColor = style.getPropertyValue('--chart-fourth-color');
-    var chartFifthColor = style.getPropertyValue('--chart-fifth-color');
-    var chartSixthColor = style.getPropertyValue('--chart-sixth-color');
+    // var style = getComputedStyle(document.body);
+    // var chartFirstColor = style.getPropertyValue('--chart-first-color');
+    // var chartSecondColor = style.getPropertyValue('--chart-second-color');
+    // var chartThirdColor = style.getPropertyValue('--chart-third-color');
+    // var chartFourthColor = style.getPropertyValue('--chart-fourth-color');
+    // var chartFifthColor = style.getPropertyValue('--chart-fifth-color');
+    // var chartSixthColor = style.getPropertyValue('--chart-sixth-color');
 
     var ctx = document.getElementById('studentListBarChart').getContext('2d');
     var myChart = new Chart(ctx, {
@@ -123,20 +125,20 @@
                 label: 'Number of Students',
                 data: chartData,
                 backgroundColor: [
-                    chartFirstColor,
-                    chartSecondColor,
-                    chartThirdColor,
-                    chartFourthColor,
-                    chartFifthColor,
-                    chartSixthColor
+                    '#fd8fa0',
+                    '#fdcfd6',
+                    '#f84c71',
+                    '#c8acb7',
+                    '#2e294e',
+                    '#ac858b'
                 ],
                 borderColor: [
-                    chartFirstColor,
-                    chartSecondColor,
-                    chartThirdColor,
-                    chartFourthColor,
-                    chartFifthColor,
-                    chartSixthColor
+                    '#fd8fa0',
+                    '#fdcfd6',
+                    '#f84c71',
+                    '#c8acb7',
+                    '#2e294e',
+                    '#ac858b'
                 ],
                 borderWidth: 1
             }]

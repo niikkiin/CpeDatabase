@@ -10,6 +10,12 @@ from home.forms import SectionForm, StudentForm
 
 from account.models import Log
 
+
+# validation 
+from django.core.exceptions import ValidationError
+import re
+
+
 # Create your views here.
 
 class DashBoardView(LoginRequiredMixin, TemplateView):
@@ -140,14 +146,30 @@ class StudentCreateView(LoginRequiredMixin, CreateView):
         )
         
         return super().form_valid(form)
-    
-    # def form_invalid(self, form, **kwargs):
-    #     if Student.objects.filter(student_number=form.instance.student_number).exists():
-    #         messages.error(self.request, 'The student number is already taken')
-    #     else:
-    #         messages.error(self.request, 'Please follow the correct format for student number. e.g.(2015-02986-MN-0)')
-    #     pk = self.kwargs['pk']
-    #     return redirect('home:create-student', pk=pk)
+        
+    def form_invalid(self, form, **kwargs):
+        student = Student.objects.filter(student_number=form.instance.student_number)
+        
+        if len(form.instance.last_name) == 0:
+            messages.error(self.request, 'Last Name Field is required.')
+        if len(form.instance.first_name) == 0:
+            messages.error(self.request, 'First Name Field is required.')
+            
+        if student.exists():
+            # raise ValidationError('This student number is already registered in our system.')
+            messages.error(self.request, 'The student number is already registered in our system.')
+        else:
+            reg = re.compile('^(199\d|200\d|2020)-(\b\d{5}\b)-(MN|mn)-(0|1)$')
+            if len(form.instance.student_number) > 0:
+                if not reg.match(form.instance.student_number):
+                    # raise ValidationError('Please follow the correct format for student number. e.g.(2015-02986-MN-0)') 
+                    messages.error(self.request, 'Please follow the correct format for the student number. e.g.(2015-02986-MN-0)')
+            else:
+                messages.error(self.request, 'Student Number Field is required.')
+                
+                
+        pk = self.kwargs['pk']
+        return redirect('home:create-student', pk=pk)
         
 
     def get_context_data(self, **kwargs):
@@ -179,6 +201,7 @@ class StudentUpdateView(LoginRequiredMixin, UpdateView):
 
         return super().form_valid(form)
 
+    
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         pk = self.kwargs['pk']

@@ -139,3 +139,16 @@
     bottom: 25px;
     left: 90px;
 }
+
+/* SECTION Error List */
+ul.errorlist {
+    list-style-type: none !important;
+}
+
+.student-number-error {
+    background-color: #FCA5A5;
+    border-radius: 20px;
+    padding: 20px;
+    /* color: #000 !important; */
+    margin: 20px 20px 0 20px;
+}

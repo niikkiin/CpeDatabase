@@ -75,8 +75,12 @@
                                         <td class="pt-4">{{ section.name }}</td>
                                         <td class="pt-4">{{ section.academic_year }}</td>
                                         <td>
-                                            <a href="{% url 'home:update-section' pk=section.pk %}" class="btn btn-warning btn-sm mx-3"><i class="fas fa-pencil-alt"></i> Update</a>
-                                            <span class="btn btn-danger btn-sm" data-toggle="modal" data-target="#confirmDelete{{ section.pk }}"><i class="fas fa-trash-alt"></i> Delete</span>
+                                            <div class="row">
+                                                <div class="col-sm-12 text-sm-center text-lg-left">
+                                                    <a href="{% url 'home:update-section' pk=section.pk %}" class="btn btn-warning btn-sm mx-3"><i class="fas fa-pencil-alt"></i> Update</a>
+                                                    <span class="btn btn-danger btn-sm" data-toggle="modal" data-target="#confirmDelete{{ section.pk }}"><i class="fas fa-trash-alt"></i> Delete</span>
+                                                </div>
+                                            </div>
                                         </td>
                                     </tr>
 

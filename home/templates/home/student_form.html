@@ -5,9 +5,9 @@
 {% block home_css %}
     <link rel="stylesheet" href="{% static 'home/plugins/select2/css/select2.min.css' %}">
     <style>
-        .select2-dropdown {
+        /* .select2-dropdown {
             width: 1080px !important;
-        }
+        } */
     </style>
 {% endblock home_css %}
 
@@ -45,7 +45,7 @@
                         {% if messages %}
                         <div class="alert alert-warning alert-dismissible fade show student-number-error text-white" role="alert">
                             <h5>
-                                <strong class="font-weight-bold">Holy guacamole!</strong> You should check in on some of those fields below.
+                                <strong class="font-weight-bold">Error:</strong> You should check in on some of those fields below.
                             </h5>
                             {% for message in messages %}
                                 <span class="muli-font pl-3">
@@ -106,7 +106,9 @@
         $('ul.sidebar-nav li.students').addClass('active');
 
         // initialize select for page length option
-        $('select').select2();
+        $('select').select2({
+            minimumResultsForSearch: -1
+        });
     </script>
 {% endblock home_js %}
 

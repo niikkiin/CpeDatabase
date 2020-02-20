@@ -15,7 +15,7 @@
 {% block home_content %}
     <div class="row">
         <div class="col-md-8">
-            <div class="welcome-container shadow-sm pt-4 pl-5">
+            <div class="welcome-container container-fluid pb-5 mb-5 shadow-sm pt-4 pl-5">
                 <div class="row">
                     <div class="col-md-7">
                         <h1>Welcome back, <strong class="bright-pink font-weight-bold muli-font text-capitalize">{{ user.username }}</strong> </h1>
@@ -25,15 +25,20 @@
                     </div>
                     <div class="col-md-5">
                         <div class="portrait">
-                            <img src="{% static 'home/images/avatar-pink.png' %}" alt="img-dashboard" class="pink-img img-fluid img-dashboard">
-                            <img src="{% static 'home/images/avatar-peach.png' %}" alt="img-dashboard" class="peach-img img-fluid img-dashboard">
-                            <img src="{% static 'home/images/avatar-dark.png' %}" alt="img-dashboard" class="dark-img img-fluid img-dashboard">
+                            <div class="img-dash d-none d-lg-block">
+                                <img src="{% static 'home/images/avatar-pink.png' %}" alt="img-dashboard" class="pink-img img-fluid img-dashboard">
+                                <img src="{% static 'home/images/avatar-peach.png' %}" alt="img-dashboard" class="peach-img img-fluid img-dashboard">
+                                <img src="{% static 'home/images/avatar-dark.png' %}" alt="img-dashboard" class="dark-img img-fluid img-dashboard">
+                            </div>
+                            <!-- <img src="{% static 'home/images/avatar-pink.png' %}" alt="img-dashboard" class="pink-img img-fluid img-dashboard d-none d-md-block">
+                            <img src="{% static 'home/images/avatar-peach.png' %}" alt="img-dashboard" class="peach-img img-fluid img-dashboard d-none d-md-block">
+                            <img src="{% static 'home/images/avatar-dark.png' %}" alt="img-dashboard" class="dark-img img-fluid img-dashboard d-none d-md-block"> -->
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="number-container shadow-sm mt-4 pt-4 px-5">
+            <div class="number-container container-fluid shadow-sm mt-4 pt-4 px-5">
                 <div class="row">
                     <div class="col-sm-12">
                         <h3>Total Number of Students: <strong class="bright-pink">{{ all_student_count }}</strong></h3>
@@ -48,12 +53,12 @@
         </div><!--col-md-8 end-->
         <div class="col-md-4">
             <div class="col-sm-12">
-                <div class="side-container p-4 shadow-sm">
+                <div class="side-container container-fluid mt-2 p-4 shadow-sm">
                     <div id="calendar"></div>
                 </div>
             </div>
             <div class="col-sm-12">
-                <div class="bottom-container shadow-sm mt-4 pt-4 px-5">
+                <div class="bottom-container container-fluid mb-4 shadow-sm mt-4 pt-4 px-5">
                     <h3 class="muli-font">Recent Actions</h3>
                     <div class="example-1 scrollbar-ripe-malinka pr-2">
                         {% for log in logs %}
@@ -92,7 +97,7 @@
         var calendarEl = document.getElementById('calendar');
 
         var calendar = new FullCalendar.Calendar(calendarEl, {
-            aspectRatio: 1.2,
+            aspectRatio: 1.15,
             plugins: [ 'dayGrid' ]
         });
 

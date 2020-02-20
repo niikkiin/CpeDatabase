@@ -108,9 +108,13 @@
                                             {% endif %}
                                         </td>
                                         <td>
-                                            <a href="{% url 'home:view-student' pk=student.pk %}" class="btn btn-success btn-view-table btn-sm"><i class="fas fa-clipboard"></i> View</a>
-                                            <a href="{% url 'home:update-student' pk=student.pk %}" class="btn btn-warning btn-sm mx-3"><i class="fas fa-pencil-alt"></i> Update</a>
-                                            <span class="btn btn-danger btn-sm" data-toggle="modal" data-target="#confirmDelete{{ student.pk }}"><i class="fas fa-trash-alt"></i> Delete</span>
+                                            <div class="row">
+                                                <div class="col-sm-12 text-sm-center text-lg-left">
+                                                    <a href="{% url 'home:view-student' pk=student.pk %}" class="mt-1 btn btn-success btn-view-table btn-sm"><i class="fas fa-clipboard"></i> View</a>
+                                                    <a href="{% url 'home:update-student' pk=student.pk %}" class="mt-1 btn btn-warning btn-sm mx-3"><i class="fas fa-pencil-alt"></i> Update</a>
+                                                    <span class="mt-2 btn btn-danger btn-sm" data-toggle="modal" data-target="#confirmDelete{{ student.pk }}"><i class="fas fa-trash-alt"></i> Delete</span>
+                                                </div>
+                                            </div>
                                         </td>
                                     </tr>
 
@@ -195,6 +199,26 @@
             $('#studentListTable_length select').select2({
                 minimumResultsForSearch: -1
             });
-        } );
+
+    //     function openPrintDialogue(){
+    //         $('<iframe>', {
+    //             name: 'myiframe',
+    //             class: 'printFrame'
+            
+    //         })
+    //         .appendTo('body')
+    //         .contents().find('body')
+    //         .append($('#studentListTable'));
+    //     window.frames['myiframe'].focus();
+    //     window.frames['myiframe'].print();
+
+    //     setTimeout(() => { $(".printFrame").remove(); }, 1000);
+
+    //     };
+
+    //     $('.btn-print').on('click', openPrintDialogue);
+        
+    });
+
     </script>
 {% endblock home_js %}

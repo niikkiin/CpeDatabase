@@ -146,8 +146,8 @@ h3.title {
 .view-all-container {
     background-color: var(--fifth-color);
     border-radius: 20px;
-    color: var(--background-color);
-    height: 10vh;
+    color: var(--dark-color);
+    /* height: 10vh; */
 }
 
 

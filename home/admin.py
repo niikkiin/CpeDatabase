@@ -13,6 +13,8 @@ class SectionAdmin(admin.ModelAdmin):
 
 admin.site.register(Section, SectionAdmin)
 
+# class StudentAdmin(ImportExportModelAdmin):
+#     pass
 class StudentAdmin(admin.ModelAdmin):
     list_display = ('student_number', 'last_name', 'section', 'gender')
     search_fields = ('student_number', 'last_name')

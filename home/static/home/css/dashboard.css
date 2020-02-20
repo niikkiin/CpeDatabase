@@ -271,25 +271,26 @@ a:focus {
 .welcome-container {
     background-color: var(--container-color);
     border-radius: 30px;
-    height: 25vh;
+    padding-bottom: 100px !important;
+    /* height: 25vh; */
 }
 .number-container {
     background-color: var(--container-color);
     text-transform: capitalize;
     border-radius: 30px;
-    height: 53vh;
+    /* height: 53vh; */
 }
 .side-container {
     background-color: var(--container-color);
     text-transform: capitalize;
     border-radius: 30px;
-    height: 50vh;
+    /* height: 51vh; */
 }
 .bottom-container {
     background-color: var(--container-color);
     text-transform: capitalize;
     border-radius: 30px;
-    height: 28vh;
+    /* height: 29vh; */
 }
 /* STUB Image */
 .profile-img-container {
@@ -401,4 +402,9 @@ a:focus {
     position: relative;
     overflow-y: scroll;
     height: 200px; 
+}
+
+#themePicker {
+    font-family: 'Muli', sans-serif;
+    font-size: large;
 }
